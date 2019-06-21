@@ -11,6 +11,12 @@ const SideBar = props => {
             src="https://docs.atlassian.com/aui/8.3.1/docs/images/avatar-person.svg"
             height="100" width="100"
           />
+          <div className="logout">
+            <button className="button">
+              Log Out
+            </button>
+          </div>
+          <br></br>
           {props.pages.map((page, index) => {
             return (
               <SideBarItem

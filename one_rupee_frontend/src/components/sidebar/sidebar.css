@@ -2,8 +2,27 @@ img {
   max-height: 100%;
   max-width: 100%;
   border-radius: 100%;
-  padding: 15px 15px 15px 15px;
+  padding: 18px 18px 18px 18px;
 }
+
+.logout {
+  text-align: center;
+}
+
+.button {
+  color: var(--topbar-bg-color);
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+  font-size: 15px;
+  width: 60%;
+  padding: 2px;
+}
+
+.button:hover {
+  background-color: rgba(201, 74, 24, 0.795); 
+  color: white;
+}
+
 .sidebar-container {
   font-family: "Montserrat" sans-serif;
   background: var(--sidebar-bg-color);
