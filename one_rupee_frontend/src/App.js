@@ -14,7 +14,7 @@ class App extends Component {
         { name: "Donations", icon: "money" },
         { name: "Leaderboard", icon: "trophy" },
       ],
-      activePage: 0,
+      activePage: 1,
       sidebarActive: true
     };
   }
