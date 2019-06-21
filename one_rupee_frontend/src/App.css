@@ -3,7 +3,7 @@
 
 :root {
   /* Sidebar variables */
-  --sidebar-width: 125px;
+  --sidebar-width: 180px;
   --sidebar-bg-color: #043954;
   --sidebar-dark-color: #0f567f;
   --sidebar-content-color: rgba(255, 255, 255, 0.815);

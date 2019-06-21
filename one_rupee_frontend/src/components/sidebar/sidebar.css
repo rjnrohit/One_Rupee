@@ -62,7 +62,7 @@ img {
   font-size: 1.4em;
   display: inline-block;
   background: var(--topbar-bg-color);
-  color: #ffffff;
+  color: white;
   padding: 10px 10px;
   height: 60%;
   flex: 1;
