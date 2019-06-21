@@ -5,8 +5,7 @@ const Table= props=>{
 
     const renderTableHeader = ()=>{
         let header = Object.keys(props.payments[0])
-        header.unshift("id")
-        console.log(header)
+        header.unshift("#")
         return header.map((key, index) => {
            return <th key={index}>{key.toUpperCase()}</th>
         })
@@ -14,12 +13,13 @@ const Table= props=>{
   
     const renderTableData = ()=>{
         return props.payments.map((payment, index) => {
-           const { date, Name, Amount } = payment
+           const { date, time, Name, Amount } = payment
            let id = index+1
            return (
               <tr key={id}>
                  <td>{id}</td>
                  <td>{date}</td>
+                 <td>{time}</td>
                  <td>{Name}</td>
                  <td>{Amount}</td>
               </tr>
