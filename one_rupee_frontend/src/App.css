@@ -1,33 +1,40 @@
-.App {
-  text-align: center;
+@import "./components/sidebar/sidebar.css";
+@import "./components/topbar/topbar.css";
+
+:root {
+  /* Sidebar variables */
+  --sidebar-width: 125px;
+  --sidebar-bg-color: #043954;
+  --sidebar-dark-color: #0f567f;
+  --sidebar-content-color: rgba(255, 255, 255, 0.815);
+  /* Topbar variables */
+  --topbar-height: 50px;
+  --topbar-bg-color: #072d54;
+  --topbar-dark-color: #1b8dcf;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/* CSS FOR MAIN BODY WRAPPER */
+
+.main-wrapper {
+  position: fixed;
+  overflow-y: auto;
+  bottom: 0;
+  right: 0;
+  left: var(--sidebar-width);
+  top: var(--topbar-height);
+  transition: all 0.4s ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main-wrapper.sidebar-hidden {
+  left: 0;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 600px) {
+  .main-wrapper {
+    left: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .main-wrapper.sidebar-hidden {
+    left: var(--sidebar-width);
   }
 }
