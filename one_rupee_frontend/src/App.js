@@ -13,7 +13,7 @@ class App extends Component {
         { name: "Home", icon: "home" },
         { name: "Donations", icon: "money" },
         { name: "Leaderboard", icon: "trophy" },
-        {name: "Landing", icon: "a"}
+        { name: "Landing", icon: "" }
       ],
       activePage: 1,
       sidebarActive: true

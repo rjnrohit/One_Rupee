@@ -57,9 +57,10 @@ body, html {
   
   .btn:hover {
     opacity: 1;
+    background-color: var(--sidebar-dark-color)
   }
   .forgot {
-      text-align: right;
-      float:right;
-      align-items: right;margin-bottom: 2px;
+    text-decoration: none;
+    margin:  auto;
+    margin-bottom: 2px;
   }
