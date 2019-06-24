@@ -11,7 +11,7 @@ body, html {
     background: url("../images/image2.jpg") center center no-repeat;
   
     /* Control the height of the image */
-    min-height: 640px;
+    min-height: 663px;
   
     /* Center and scale the image nicely */
     background-position: center;
@@ -66,10 +66,4 @@ body, html {
 
   .forgot {
     text-decoration: none;
-    margin:  auto;
-    margin-bottom: 2px;
-  }
-
-  .loginText {
-    text-align: center
   }

@@ -4,7 +4,7 @@
     margin-top: 0;
     padding:0; */
     text-align: center;
-    padding: 0.5em 0 2em 0;
-    color: #072d54;
-    background-color: rgb(202, 216, 235);
+    padding: 0.5em 0 0.5em 0;
+    color: var(--header-content-color);
+    background-color:var(--header-bg-color);
 }

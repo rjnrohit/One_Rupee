@@ -32,7 +32,7 @@ class Login extends React.Component
                         </button>
                     </div>
                     <br/> 
-                    {/* <h4 className="loginText">Signing in as {this.state.userType}</h4>                    */}
+                    {/* <h4 className="loginText">Signing in as {this.state.userType}</h4>*/}
                     <label><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" required/>
                     <label><b>Password</b></label>
