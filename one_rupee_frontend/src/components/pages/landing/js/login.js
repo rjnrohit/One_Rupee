@@ -20,11 +20,19 @@ class Login extends React.Component
             <div className="bg-img">
                 <form action="" className="container">
                     <div>  
-                        <button className="btn" onClick={()=>this.loginHandler("user")}><h3>Login as User</h3></button> 
-                        <button className="btn" onClick={()=>this.loginHandler("NGO")}><h3>Login as NGO</h3></button>
+                        <button 
+                            className={"btn" + (this.state.userType==="user" ? " active": "")}
+                            onClick={()=>this.loginHandler("user")}>
+                            <h3>Login as a user</h3>
+                        </button> 
+                        <button 
+                            className={"btn" + (this.state.userType==="NGO" ? " active": "")}
+                            onClick={()=>this.loginHandler("NGO")}>
+                            <h3>Login as a NGO</h3>
+                        </button>
                     </div>
                     <br/> 
-                    <h4>Signing in as {this.state.userType}</h4>                   
+                    {/* <h4 className="loginText">Signing in as {this.state.userType}</h4>                    */}
                     <label><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" required/>
                     <label><b>Password</b></label>
