@@ -3,7 +3,7 @@
 
 :root {
   /* Sidebar variables */
-  --sidebar-width: 180px;
+  --sidebar-width: 135px;
   --sidebar-bg-color: #043954;
   --sidebar-dark-color: #0f567f;
   --sidebar-content-color: rgba(255, 255, 255, 0.815);
@@ -23,10 +23,21 @@
   left: var(--sidebar-width);
   top: var(--topbar-height);
   transition: all 0.4s ease-in-out;
+  margin: 0;
+  justify-content: center;
+  align-content: center;
 }
 
 .main-wrapper.sidebar-hidden {
   left: 0;
+  margin: 0;
+}
+.main-wrapper.back {
+  background-image: url("./download.png");
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 0;
 }
 
 @media (max-width: 600px) {
