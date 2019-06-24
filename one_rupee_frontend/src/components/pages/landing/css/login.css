@@ -11,7 +11,9 @@ body, html {
     background: url("../images/image2.jpg") center center no-repeat;
   
     /* Control the height of the image */
-    min-height: 663px;
+
+    /* added 50px (height of topbar) */
+    min-height: 713px;
   
     /* Center and scale the image nicely */
     background-position: center;
@@ -46,7 +48,7 @@ body, html {
   
   /* Set a style for the submit button */
   .btn {
-    background-color: #072d54;
+    background-color: var(--footer-bg-color);
     color: white;
     padding: 6px 1px;
     border: none;
