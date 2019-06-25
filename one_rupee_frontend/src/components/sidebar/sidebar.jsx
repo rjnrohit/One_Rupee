@@ -6,17 +6,17 @@ const SideBar = props => {
     <React.Fragment>
       <div className={"sidebar-container" + (!props.active ? " hidden" : "")}>
         <div className="sidebar">
-          <img 
+          <img
+            className="img1"
             alt="https://docs.atlassian.com/aui/8.3.1/docs/images/avatar-person.svg"
             src="https://docs.atlassian.com/aui/8.3.1/docs/images/avatar-person.svg"
-            height="100" width="100"
+            height="100"
+            width="100"
           />
           <div className="logout">
-            <button className="button">
-              Log Out
-            </button>
+            <button className=" button1 ">Log Out</button>
           </div>
-          <br></br>
+          <br />
           {props.pages.map((page, index) => {
             return (
               <SideBarItem
