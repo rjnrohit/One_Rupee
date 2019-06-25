@@ -14,7 +14,7 @@ const SideBar = props => {
             width="100"
           />
           <div className="logout">
-            <button className=" button1 ">Log Out</button>
+            <button className=" button ">Log Out</button>
           </div>
           <br />
           {props.pages.map((page, index) => {
