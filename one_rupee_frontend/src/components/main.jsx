@@ -7,8 +7,7 @@ const Main = props => {
     <div
       className={
         "main-wrapper" +
-        (props.sidebarActive ? "" : " sidebar-hidden") +
-        (props.page.name === "Profile" ? " back" : "")
+        (props.sidebarActive ? "" : " sidebar-hidden") 
       }
     >
       {props.page.name === "Donations" ? <Donations /> : null}

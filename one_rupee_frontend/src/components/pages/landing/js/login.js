@@ -18,7 +18,8 @@ class Login extends React.Component
     {
         return(
             <div className="bg-img">
-                <form action="" className="container">
+                
+                <form action="http://localhost:8000/landingPage/" method ="POST" className="container">
                     <div>  
                         <button 
                             className={"btn" + (this.state.userType==="user" ? " active": "")}
