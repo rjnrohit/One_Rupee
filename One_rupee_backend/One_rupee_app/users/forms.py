@@ -1,1 +1,0 @@
-from django.contrib.forms import RegistrationForm
