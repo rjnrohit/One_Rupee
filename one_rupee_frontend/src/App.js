@@ -3,7 +3,7 @@ import "./App.css";
 import SideBar from "./components/sidebar/sidebar";
 import TopBar from "./components/topbar/topbar";
 import Main from "./components/main";
-
+import Footer from "./components/pages/landing/js/footer"
 class App extends Component {
   constructor() {
     super();
@@ -47,6 +47,7 @@ class App extends Component {
           page={this.state.pages[this.state.activePage]}
           sidebarActive={this.state.sidebarActive}
         />
+        <Footer/>
       </React.Fragment>
     );
   }
