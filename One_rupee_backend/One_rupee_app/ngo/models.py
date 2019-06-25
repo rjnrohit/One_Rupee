@@ -2,11 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Ngo(models.Model, User):
+class Ngo(User, models.Model):
 
     class Meta:
-        verbose_name = _("Ngo")
-        verbose_name_plural = _("Ngos")
+        verbose_name = ("Ngo")
+        verbose_name_plural = ("Ngos")
 
     def __str__(self):
         return self.name
@@ -23,8 +23,8 @@ class Ngo(models.Model, User):
 class Profile(models.Model):
 
     class Meta:
-        verbose_name = _("Profile")
-        verbose_name_plural = _("Profiles")
+        verbose_name = ("Profile")
+        verbose_name_plural = ("Profiles")
 
     def __str__(self):
         return self.name
