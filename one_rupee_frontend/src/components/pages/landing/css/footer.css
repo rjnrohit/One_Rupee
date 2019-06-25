@@ -1,8 +1,10 @@
 #footer {
     text-align: center;
-    padding: 4em 0 4em 0;
-    color:rgb(150,150,150);
-    background-color: #072d54;
+    color:var(--footer-content-color);
+    background-color: var(--footer-bg-color);
+    position:fixed;
+    bottom:0;
+    width:100%;
 }
     
     #footer a {
@@ -21,10 +23,6 @@
         text-align: center;
     }
     @media screen and (max-width: 1280px) {
-
-        #footer {
-            padding: 3em 0 1em 0;
-        }
 
     }
     .icon {
@@ -60,5 +58,5 @@
 					padding-right: 0;
 				}
 				ul.icons li .icon:before {
-					font-size: 2rem;
+					font-size: 1.5rem;
 				}

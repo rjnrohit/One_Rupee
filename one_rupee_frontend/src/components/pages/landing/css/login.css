@@ -8,15 +8,15 @@ body, html {
   
   .bg-img {
     /* The image used */
-    background: url("../images/image.jpg") center center no-repeat;
+    background: url("../images/image2.jpg") center center no-repeat;
   
     /* Control the height of the image */
-   min-height: 500px;
+    min-height: 663px;
   
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
   /*  position: relative;*/
   }
   
@@ -57,10 +57,13 @@ body, html {
   
   .btn:hover {
     opacity: 1;
-    background-color: var(--sidebar-dark-color)
+    background-color: var(--sidebar-dark-color);
   }
+
+  .btn.active {
+    background-color: var(--sidebar-dark-color);
+  }
+
   .forgot {
     text-decoration: none;
-    margin:  auto;
-    margin-bottom: 2px;
   }
