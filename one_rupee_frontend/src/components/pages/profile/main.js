@@ -8,7 +8,7 @@ class Main extends React.Component
         this.state ={
             image:"",
             name :"[name]",
-            email:"ulhaqshayan786@gmail.com",
+            email:"[email]",
             mobNo:"[ph no.]",
             numDonations:3,
             myNGOs:["NGO1","NGO2","NGO3"],
