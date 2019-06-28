@@ -1,38 +1,5 @@
-.img1{
-  max-height: 100%;
-  max-width: 100%;
-  border-radius: 100%;
-  display: block;
-  margin: 0 auto;
-  padding: 5px 5px 5px 5px;
-  
-}
-
-
-
 .logout {
   text-align: center;
-}
-
-.button {
-  color: var(--topbar-bg-color);
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  font-size: 15px;
-  width: 60%;
-  padding: 2px;
-}
-.button1 {
-  margin: 2px;
-  padding: auto;
-  border: 0px;
-  background-color: rgb(75, 143, 206);
-  text-justify: auto;
-}
-
-.button:hover {
-  background-color: rgba(201, 74, 24, 0.795);
-  color: white;
 }
 
 .sidebar-container {
