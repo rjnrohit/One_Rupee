@@ -18,7 +18,8 @@ export default () => (
         <div className="content">
             <form>
                 <span id="headings">Name : </span> 
-                <input type="text" placeholder ="Enter the name of your project" ></input>
+                <input type="text" placeholder ="Enter the name of your project" id="name"></input>
+                <br></br>
                 <span id="headings">Category : </span>
                 <select name="category">
                     <option value= "Educational">Educational</option>
