@@ -1,12 +1,19 @@
 import React, { Component } from "react";
-import FeedPost from "./feedPost";
+import Menu from "./Menu"
+
+const categories = [
+  "HEALTH",
+  "EDUCATION",
+  "CHARITY",
+  "MISCELLANEOUS"
+]
 
 const samplePost = {
   ngo: {
     title: "[TITLE]",
     summary:
       "[short description]",
-    category: "[category]",
+    category: categories[1],
     description:
       "[long description]",
     required: 10000, // amount of money required by project
@@ -40,10 +47,8 @@ class Feed extends Component {
 
   render() {
     return (
-      <div className="feed-container">
-        {this.state.posts.map((post, index) => (
-          <FeedPost post={post} key={index}/>
-        ))}
+      <div>
+        <Menu posts={this.state.posts}/>
       </div>
     );
   }
