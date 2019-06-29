@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from './Table.js'
-import './Donations.css'
+import './History.css'
 
 const sampleHistory = {
     date: '21/6/19' , 
@@ -9,7 +9,7 @@ const sampleHistory = {
     Amount: '1,00,00,000' ,
 }
 
-class Donations extends React.Component{
+class History extends React.Component{
     constructor() {
         super()
         this.state = {
@@ -36,4 +36,4 @@ class Donations extends React.Component{
     }
 }
 
-export default Donations;
+export default History;

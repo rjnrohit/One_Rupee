@@ -11,10 +11,10 @@ class App extends Component {
       pages: [
         { name: "Profile", icon: "user" },
         { name: "Home", icon: "home" },
-        { name: "Donations", icon: "money" },
+        { name: "Request", icon:"money" },
         { name: "Leaderboard", icon: "trophy" },
+        { name: "History", icon: "history" },
         { name: "Landing", icon: "" },
-        {name:"Request", icon:""}
       ],
       activePage: 1,
       sidebarActive: true
