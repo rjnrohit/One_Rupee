@@ -14,9 +14,9 @@ class App extends Component {
         { name: "Request", icon:"money",route:"/request" },
         { name: "Leaderboard", icon: "trophy",route:"/leaderboard" },
         { name: "History", icon: "history",route:"/history" },
-        { name: "Landing", icon: "",route:"/index" },
+        { name: "Landing", icon: "",route:"/" },
       ],
-      activePage: 1,
+      activePage: 5,
       sidebarActive: false
     };
   }
