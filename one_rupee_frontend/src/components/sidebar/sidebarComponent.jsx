@@ -1,11 +1,6 @@
 import React from "react";
-import {BrowserRouter as Router ,Link} from "react-router-dom"
-const sidebarItem = {
-  padding: "20px 25px 20px 12px",
-  transition: "all 0.4s",
-  webkitTapHighlightColor: "rgba(0, 0, 0, 0)",
-  cursor : "pointer"
-}
+import {BrowserRouter as Router ,Link} from "react-router-dom";
+
 const SideBarItem = props => {
   return (
     <Router>
