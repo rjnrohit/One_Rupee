@@ -3,6 +3,7 @@ import Popup from "./popup.js"
 import "./request.css"
 import ReqPost from "./reqPost"
 
+
 const samplePost = {
     ngo: {
       title: "[TITLE]",
@@ -52,15 +53,18 @@ class Request extends React.Component
     {
         return(
             <div>
+                <div><h1 style={{textAlign:"center"}}>My Requests</h1></div>
                 <div className="feed-container">
                     {this.state.posts.map((post, index) => (
                     <ReqPost post={post} key={index}/>
                     ))}
                 </div>
-                <button  onClick={this.togglePopup.bind(this)}>
-                    Request for Donation !
-                </button>
-                {this.state.showPopup ? <Popup closePopup = {this.togglePopup.bind(this)}/>:null}
+                <div id="req">
+                    <button  onClick={this.togglePopup.bind(this)}>
+                        Request for Donation !
+                    </button>
+                    {this.state.showPopup ? <Popup closePopup = {this.togglePopup.bind(this)}/>:null}
+                </div>
             </div>
         )
     }
