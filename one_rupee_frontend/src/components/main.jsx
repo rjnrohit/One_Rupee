@@ -8,7 +8,7 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom"
 const Main = props => {
   return (
     <Router>
-      
+      <Switch>
         <div
         className={
           "main-wrapper" +
@@ -17,11 +17,11 @@ const Main = props => {
       >
     <Route path ="/" exact component = {Landing}/>
     <Route path ="/history" component={History}/>
-    
     <Route path ="/profile" component = {Profile}/>
     <Route path ="/feed" component={Feed}/>
     <Route path ="/request" component={Request}/>
       </div>
+      </Switch>
     </Router>
   );
 };
