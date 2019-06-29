@@ -12,7 +12,7 @@ const samplePost = {
   ngo: {
     title: "[TITLE]",
     summary:
-      "[shorts description]",
+      "[short description]",
     category: categories[1],
     description:
       "[long description]",
