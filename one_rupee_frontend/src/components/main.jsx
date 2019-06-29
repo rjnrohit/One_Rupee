@@ -4,21 +4,25 @@ import Landing from "./pages/landing/js/landing";
 import Profile from "./pages/profile/profile";
 import Feed from "./pages/feed/feed";
 import Request from "./pages/request/request.js"
-
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom"
 const Main = props => {
   return (
-    <div
-      className={
-        "main-wrapper" +
-        (props.sidebarActive ? "" : " sidebar-hidden") 
-      }
-    >
-      {props.page.name === "History" ? <History /> : null}
-      {props.page.name === "Landing" ? <Landing /> : null}
-      {props.page.name === "Profile" ? <Profile /> : null}
-      {props.page.name === "Home" ? <Feed /> : null}
-      {props.page.name === "Request" ? <Request/> : null}
-    </div>
+    <Router>
+      
+        <div
+        className={
+          "main-wrapper" +
+          (props.sidebarActive ? "" : " sidebar-hidden") 
+        }
+      >
+    <Route path ="/" exact component = {Landing}/>
+    <Route path ="/history" component={History}/>
+    
+    <Route path ="/profile" component = {Profile}/>
+    <Route path ="/feed" component={Feed}/>
+    <Route path ="/request" component={Request}/>
+      </div>
+    </Router>
   );
 };
 

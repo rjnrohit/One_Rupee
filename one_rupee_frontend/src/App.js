@@ -3,21 +3,21 @@ import "./App.css";
 import SideBar from "./components/sidebar/sidebar";
 import TopBar from "./components/topbar/topbar";
 import Main from "./components/main";
-
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom"
 class App extends Component {
   constructor() {
     super();
     this.state = {
       pages: [
-        { name: "Profile", icon: "user" },
-        { name: "Home", icon: "home" },
-        { name: "Request", icon:"money" },
-        { name: "Leaderboard", icon: "trophy" },
-        { name: "History", icon: "history" },
-        { name: "Landing", icon: "" },
+        { name: "Profile", icon: "user" ,route:"/profile"},
+        { name: "Home", icon: "home" ,route:"/feed" },
+        { name: "Request", icon:"money",route:"/request" },
+        { name: "Leaderboard", icon: "trophy",route:"/leaderboard" },
+        { name: "History", icon: "history",route:"/history" },
+        { name: "Landing", icon: "",route:"/index" },
       ],
       activePage: 1,
-      sidebarActive: true
+      sidebarActive: false
     };
   }
 
@@ -31,24 +31,36 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <React.Fragment>
-        <TopBar
-          onSidebarToggle={this.sidebarToggleHandler}
-          currentPage={this.state.pages[this.state.activePage]}
-        />
-        <SideBar
-          pages={this.state.pages}
-          activePage={this.state.activePage}
-          pageHandler={this.switchPage}
-          active={this.state.sidebarActive}
-        />
-        {/* Container for the main body */}
+    const Ab = () =>
+    {
+      return(
         <Main
-          page={this.state.pages[this.state.activePage]}
-          sidebarActive={this.state.sidebarActive}
-        />
-      </React.Fragment>
+        page={this.state.pages[this.state.activePage]}
+        sidebarActive={this.state.sidebarActive}
+      /> 
+      )
+    }
+    return (
+      <Router><Switch><React.Fragment>
+      <TopBar
+        onSidebarToggle={this.sidebarToggleHandler}
+        currentPage={this.state.pages[this.state.activePage]}
+      />
+      <SideBar
+        pages={this.state.pages}
+        activePage={this.state.activePage}
+        pageHandler={this.switchPage}
+        active={this.state.sidebarActive}
+      />
+      {/* Container for the main body */}
+      <Route path={this.state.activePage.route} exact component ={Ab}/>
+      {/* <Main
+        page={this.state.pages[this.state.activePage]}
+        sidebarActive={this.state.sidebarActive}
+      /> */}
+    </React.Fragment></Switch></Router>
+
+      
     );
   }
 }
