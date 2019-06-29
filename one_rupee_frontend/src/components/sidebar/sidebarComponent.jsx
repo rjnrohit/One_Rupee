@@ -9,7 +9,7 @@ const sidebarItem = {
 const SideBarItem = props => {
   return (
     <Router>
-    <Link to = {props.page.route} style ={sidebarItem}><div
+    <Link to = {props.page.route} style ={{textDecoration:"none",color:"white"}}><div
       className={"sidebar-item" + (props.active ? " active" : "")}
       onClick={() => props.changePage(props.page)}
     >
