@@ -22,10 +22,10 @@ export default () => (
                 <br></br>
                 <span id="headings">Category : </span>
                 <select name="category">
-                    <option value= "Educational">Educational</option>
-                    <option value= "Health">Health</option>
-                    <option value= "Charity">Charity</option>
-                    <option value= "Other">Other</option>
+                    <option value= "EDUCATIONAL">EDUCATIONAL</option>
+                    <option value= "HEALTH">HEALTH</option>
+                    <option value= "CHARITY">CHARITY</option>
+                    <option value= "MISCELLANEOUS">MISCELLANEOUS</option>
                 </select>
                 <br></br><br></br>
                 <span id="headings">Description :</span>
