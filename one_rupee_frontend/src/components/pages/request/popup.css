@@ -1,0 +1,72 @@
+.modal {
+    font-size: 12px;
+  }
+  .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+  .modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+  }
+  .modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }
+
+  .button {
+    display:block;
+    margin: auto;
+    background-color: #5c6bc0 ;
+    color: white;
+    padding: 10px 10px;
+  }
+
+
+  #headings {
+    text-transform: uppercase;
+    word-spacing: 10px;
+  }
+
+  input[type=text]{
+    width: 80%;
+    height: 20px;
+  }
+
+  #amount {
+      width: 20%;
+      padding: 5px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+  }
+  #long {
+    height: 120px;
+  }
+  #short {
+    height: 50px;
+  }

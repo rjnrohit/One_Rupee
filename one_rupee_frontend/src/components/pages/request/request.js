@@ -1,6 +1,5 @@
 import React from "react"
 import Popup from "./popup.js"
-import "./request.css"
 import ReqPost from "./reqPost"
 
 
@@ -27,7 +26,6 @@ class Request extends React.Component
     {
         super()
         this.state={
-            showPopup:false,
             posts: [],
         };
     }
@@ -43,12 +41,6 @@ class Request extends React.Component
         });
     }
 
-    togglePopup() 
-    {
-        this.setState({
-          showPopup: !this.state.showPopup
-        });
-    }   
     render()
     {
         return(
@@ -60,10 +52,7 @@ class Request extends React.Component
                     ))}
                 </div>
                 <div id="req">
-                    <button  onClick={this.togglePopup.bind(this)}>
-                        Request for Donation !
-                    </button>
-                    {this.state.showPopup ? <Popup closePopup = {this.togglePopup.bind(this)}/>:null}
+                     <Popup />
                 </div>
             </div>
         )
