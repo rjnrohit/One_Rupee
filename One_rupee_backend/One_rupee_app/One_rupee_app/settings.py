@@ -31,9 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'cards',
-    'users',
-    'ngo',
+    'cards.apps.CardsConfig',
+    'users.apps.UsersConfig',
+    'ngo.apps.NgoConfig',
+    'payment.apps.PaymentConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

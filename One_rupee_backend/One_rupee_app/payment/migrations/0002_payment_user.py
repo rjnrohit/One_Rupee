@@ -9,14 +9,14 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('cards', '0001_initial'),
-        ('ngo', '0001_initial'),
+        ('payment', '0001_initial'),
+        ('users', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='card',
-            name='ngo',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ngo.Ngo', verbose_name='connected_ngo'),
+            model_name='payment',
+            name='user',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='users.user', verbose_name='through_user'),
         ),
     ]
