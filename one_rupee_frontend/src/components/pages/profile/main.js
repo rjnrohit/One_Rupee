@@ -33,8 +33,7 @@ class Main extends React.Component
                 <h2><b>Email :</b> {this.state.email}</h2>
                 <h2><strong>Mobile no. :</strong> {this.state.mobNo}</h2>
                 <h3>You have made {this.state.numDonations} donations so far...</h3>
-                <h4>Click <a href="./">here</a> to check your donations.</h4>
-                {/*to be done after router work*/}
+                <h4>Click <a href="./history">here</a> to check your donations.</h4>
             </div>
             
             </div>

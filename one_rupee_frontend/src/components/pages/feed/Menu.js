@@ -76,7 +76,7 @@ export default function SimpleListMenu(props) {
         </div>
         <div className="feed-container">
             {props.posts.map((post, index) => {
-                return (selectedIndex===0 || post.ngo.category===options[selectedIndex]) 
+                return (selectedIndex===0 || post.ngo.category.toUpperCase()===options[selectedIndex].toUpperCase()) 
                 ? (<FeedPost post={post} key={index}/>) 
                 : null
             })}

@@ -40,6 +40,13 @@ class App extends Component {
       /> 
       )
     }
+    // if(this.state.activePage===5) 
+    // return (
+    //   <Router><Switch>
+    //    <Route path={this.state.activePage.route} exact component ={Ab}/>  
+    //   </Switch></Router>
+    // )
+    // else
     return (
       <Router><Switch><React.Fragment>
       <TopBar
