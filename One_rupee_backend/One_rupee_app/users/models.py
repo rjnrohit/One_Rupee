@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class user(User, models.Model):
     mob_no = models.DecimalField(
         ("Mobile_number"), max_digits=10, decimal_places=0)
+    IsNgo = False
 
 
 class Profile(models.Model):

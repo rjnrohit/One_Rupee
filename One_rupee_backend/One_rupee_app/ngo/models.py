@@ -10,7 +10,7 @@ class Ngo(User, models.Model):
         verbose_name_plural = ("Ngos")
 
     def __str__(self):
-        return self.name
+        return self.first_name
 
     def get_absolute_url(self):
         return reverse("Ngo_detail", kwargs={"pk": self.pk})
@@ -20,6 +20,7 @@ class Ngo(User, models.Model):
         default='https://www.google.com', max_length=200)
     users = models.ManyToManyField(user, verbose_name=(
         "users_to_ngo_through_payment"), through="payment.Payment")
+    IsNgo = True
 
 
 class Profile(models.Model):
@@ -28,12 +29,9 @@ class Profile(models.Model):
         verbose_name = ("Profile")
         verbose_name_plural = ("Profiles")
 
-    def __str__(self):
-        return self.Ngo.name
-
     def get_absolute_url(self):
         return reverse("Profile_detail", kwargs={"pk": self.pk})
-    image = models.ImageField(default='www.google.com', upload_to=None,
+    image = models.ImageField(default='www.google.com', upload_to='profile_pics',
                               height_field=None, width_field=None, max_length=None)
     amount_collected = models.IntegerField(default=0)
     long_description = models.TextField()
