@@ -18,7 +18,7 @@ class Card(models.Model):
         ('DM', 'Disaster Management'),
         ('EDU', 'Education'),
         ('ENVI', 'Environmental issues'),
-        ('HNH', 'Health & Hygene'),
+        ('HNH', 'Health & Hygiene'),
         ('HA', ' HIV/AIDS'),
         ('HS', 'Housing & Slums'),
         ('P', 'Population'),
