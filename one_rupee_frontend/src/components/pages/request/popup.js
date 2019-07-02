@@ -22,10 +22,29 @@ export default () => (
                 <br></br>
                 <span id="headings">Category : </span>
                 <select name="category">
-                    <option value= "EDUCATIONAL">EDUCATIONAL</option>
-                    <option value= "HEALTH">HEALTH</option>
-                    <option value= "CHARITY">CHARITY</option>
-                    <option value= "MISCELLANEOUS">MISCELLANEOUS</option>
+                    <option value= "AGRICULTURE" >AGRICULTURE</option>
+                    <option value= "ANIMAL WELFARE">ANIMAL WELFARE</option>
+                    <option value= "ART AND CRAFT" >ART AND CRAFT</option>
+                    <option value= "CHILD EDUCATION" >CHILD EDUCATION</option>
+                    <option value= "CITIES/URBAN DEVELOPMENT">CITIES/URBAN DEVELOPMENT</option>
+                    <option value= "COMMUNITY DEVELOPMENT">COMMUNITY DEVELOPMENT</option>
+                    <option value= "CULTURE AND HERITAGE" >CULTURE AND HERITAGE</option>
+                    <option value= "DISABILITY">DISABILITY</option>
+                    <option value= "DISASTER MANAGEMENT">DISASTER MANAGEMENT</option>
+                    <option value= "DRINKING WATER">DRINKING WATER</option>
+                    <option value= "EDUCATION">EDUCATION</option>
+                    <option value= "ENVIRONMENTAL ISSUES">ENVIRONMENTAL ISSUES</option>
+                    <option value= "HEALTH AND HYGIENE" >HEALTH AND HYGIENE</option>
+                    <option value= "HIV/AIDS" >HIV/AIDS</option>
+                    <option value= "HOUSING AND SLUMS">HOUSING AND SLUMS</option>
+                    <option value= "POPULATION">POPULATION</option>
+                    <option value= "POVERTY REMOVAL">POVERTY REMOVAL</option>
+                    <option value= "RURAL DEVELOPMENT">RURAL DEVELOPMENT</option>
+                    <option value= "SCIENCE AND TRECHNOLOGY DEVELOPMENT">SCIENCE AND TRECHNOLOGY DEVELOPMENT</option>
+                    <option value= "TRIBAL PEOPLE">TRIBAL PEOPLE</option>
+                    <option value= "WASTE MANAGEMENT">WASTE MANAGEMENT</option>
+                    <option value= "WOMEN">WOMEN</option>
+                    <option value= "OTHERS">OTHERS</option>
                 </select>
                 <br></br><br></br>
                 <span id="headings">Description :</span>
