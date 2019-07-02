@@ -1,9 +1,9 @@
 import React from "react";
 import Main from "./main.js"
 
-function Profile(){
+function Profile(props){
     return (
-        <Main/>
+        <Main  pageHandler={props.pageHandler} pages={props.pages}/>
     );
   }
 
