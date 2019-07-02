@@ -2,5 +2,5 @@ from django.urls import path
 from . import views
 app_name = 'users'
 urlpatterns = [
-    path('landingPage/', views.landingPage),
+    path('register/', views.register, name='user-register'),
 ]
