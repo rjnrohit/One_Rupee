@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import SideBarItem from "./sidebarComponent";
 import "./sidebar.css"
+import { BrowserRouter as Router,Link} from "react-router-dom"
 
 const useStyles = makeStyles({
   avatar: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles({
 
 const SideBar = props => {
   return (
+    <Router>
     <React.Fragment>
       <div className={"sidebar-container" + (!props.active ? " hidden" : "")}>
         <div className="sidebar">
@@ -29,9 +31,12 @@ const SideBar = props => {
             />
           </Grid>
           <div className="logout">
-            <Button variant="contained" color="primary" size="small">
+            <Link to = "/" >
+            <Button variant="contained" color="primary" size="small" onClick = {() => props.pageHandler(props.pages[5])}>
               Log Out
             </Button>
+            </Link>
+            
           </div>
           <br />
           {props.pages.map((page, index) => {
@@ -47,6 +52,7 @@ const SideBar = props => {
         </div>
       </div>
     </React.Fragment>
+    </Router>
   );
 };
 

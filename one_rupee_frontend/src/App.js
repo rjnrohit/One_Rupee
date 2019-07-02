@@ -28,6 +28,7 @@ class App extends Component {
   switchPage = page => {
     const newActive = this.state.pages.findIndex(pg => pg.name === page.name);
     this.setState({ activePage: newActive });
+    console.log(this.state.pages[this.state.activePage].route)
   };
 
   render() {
@@ -37,6 +38,8 @@ class App extends Component {
         <Main
         page={this.state.pages[this.state.activePage]}
         sidebarActive={this.state.sidebarActive}
+        pageHandler={this.switchPage}
+        pages= {this.state.pages}
       /> 
       )
     }
