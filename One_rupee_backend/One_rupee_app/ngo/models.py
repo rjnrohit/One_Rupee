@@ -10,10 +10,11 @@ class Ngo(User, models.Model):
         verbose_name_plural = ("Ngos")
 
     def __str__(self):
-        return self.first_name
+        return self.ngo_name
 
     def get_absolute_url(self):
         return reverse("Ngo_detail", kwargs={"pk": self.pk})
+    ngo_name = models.CharField(("ngo_name"), max_length=50, blank=False)
     Ngo_certificate = models.URLField(
         default='https://www.google.com', max_length=200)
     Ngo_website = models.URLField(
