@@ -17,7 +17,7 @@ class App extends Component {
         { name: "Landing", icon: "",route:"/" },
       ],
       activePage: 5,
-      sidebarActive: false
+      sidebarActive: true
     };
   }
 
