@@ -64,7 +64,7 @@ class Feed extends Component {
     return (
       <div>
         <div style={{textAlign:"center",marginTop:"2%"}}>
-            <input placeholder="Search here" id ="input" value = {this.state.search} onChange={this.UpdateChange.bind(this)}style={{textAlign:"center",height:"30px",width:"35%",fontSize:"24px",borderRadius:"5px",border:"1px solid black"}}/>
+            <input placeholder="Search here" id ="input" value = {this.state.search} onChange={this.UpdateChange.bind(this)}style={{textAlign:"center",height:"30px",width:"45%",fontSize:"24px",borderRadius:"5px",border:"1px solid black"}}/>
             {/* <button id="button" onClick={this.Search} style={{height:"30px",fontSize:"20px",margin:"0.5%",borderRadius:"5px",backgroundColor:"var(--sidebar-dark-color)",color:"white"}}>Search</button><br/>  */}
         </div>
         <Menu posts={searched_posts}/>
