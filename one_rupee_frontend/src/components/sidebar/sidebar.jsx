@@ -31,7 +31,7 @@ const SideBar = props => {
             />
           </Grid>
           <div className="logout">
-            <Link to = "/" >
+            <Link to = "/" style ={{textDecoration:"none"}}>
             <Button variant="contained" color="primary" size="small" onClick = {() => props.pageHandler(props.pages[5])}>
               Log Out
             </Button>
