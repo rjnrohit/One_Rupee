@@ -2,10 +2,29 @@ import React, { Component } from "react";
 import Menu from "./Menu"
 
 const categories = [
-  "HEALTH",
-  "EDUCATION",
-  "CHARITY",
-  "MISCELLANEOUS"
+    'AGRICULTURE',
+    'ANIMAL WELFARE',
+    'ART AND CRAFT',
+    'CHILD EDUCATION',
+    'CITIES/URBAN DEVELOPMENT',
+    'COMMUNITY DEVELOPMENT',
+    'CULTURE AND HERITAGE',
+    'DISABILITY',
+    'DISASTER MANAGEMENT',
+    'DRINKING WATER',
+    'EDUCATION',
+    'ENVIRONMENTAL ISSUES',
+    'HEALTH AND HYGIENE',
+    'HIV/AIDS',
+    'HOUSING AND SLUMS',
+    'POPULATION',
+    'POVERTY REMOVAL',
+    'RURAL DEVELOPMENT',
+    'SCIENCE AND TECHNOLOGY DEVELOPMENT',
+    'TRIBAL PEOPLE',
+    'WASTE MANAGEMENT',
+    'WOMEN',
+    'OTHERS'
 ]
 
 const samplePost = {
