@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from users.models import user
+from django.shortcuts import reverse
 
 
 class Ngo(User, models.Model):
@@ -14,7 +15,10 @@ class Ngo(User, models.Model):
 
     def get_absolute_url(self):
         return reverse("Ngo_detail", kwargs={"pk": self.pk})
+    # later, override the email field as well as username field
     ngo_name = models.CharField(("ngo_name"), max_length=50, blank=False)
+    Email = models.EmailField(
+        ("email_ngo"), max_length=254, unique=True, blank=False)
     Ngo_certificate = models.URLField(
         default='https://www.google.com', max_length=200)
     Ngo_website = models.URLField(

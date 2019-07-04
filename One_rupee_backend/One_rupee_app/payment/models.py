@@ -1,12 +1,13 @@
 from django.db import models
 from users.models import user
 from ngo.models import Ngo
+from django.shortcuts import reverse
 # Create your models here.
 
 
 class Payment(models.Model):
     transaction_id = models.DecimalField(
-        ("transaction_id"), max_digits=100, decimal_places=0)
+        ("transaction_id"), max_digits=100, decimal_places=0, blank=False, unique=True)
     transaction_time = models.DateTimeField(
         ("transaction_time"), auto_now=False, auto_now_add=True)
     payment_status = models.BooleanField(("payment_status"), default=False)
