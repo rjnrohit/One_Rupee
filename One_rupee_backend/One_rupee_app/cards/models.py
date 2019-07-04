@@ -1,5 +1,6 @@
 from django.db import models
 from ngo.models import Ngo
+from django.shortcuts import reverse
 # Create your models here.
 
 
@@ -33,9 +34,9 @@ class Card(models.Model):
 
 
     )
-    title = models.CharField(("title"), max_length=300)
+    title = models.CharField(("title"), max_length=300, blank=False)
     category = models.CharField(
-        ("category"), max_length=50, choices=CATEGORY_CHOICES)
+        ("category"), max_length=50, choices=CATEGORY_CHOICES, blank=False)
     shortDescription = models.TextField(("shortDescription"))
     amount_requested = models.DecimalField(
         ("amount_requested"), max_digits=10, decimal_places=0, default=0)

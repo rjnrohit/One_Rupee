@@ -3,13 +3,26 @@ from .models import user, Profile
 
 
 class UserSerializer(serializers.ModelSerializer):
+    #url = serializers.CharField(source='get_absolute_url', read_only=True)
+
     class Meta:
         model = user
         fields = (
+            #'url ',
             'username',
-            'email',
+            'Email',
             'password',
             'first_name',
             'last_name',
-            'mob_no'
+            'mob_no',
+        )
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer(many=False)
+
+    class Meta:
+        model = Profile
+        fields = (
+            '__all__',
         )
