@@ -40,7 +40,7 @@ const SideBar = props => {
           </div>
           <br />
           {props.pages.map((page, index) => {
-            if(index !== 5)
+            if(index < 5)
             return (
               <SideBarItem
                 key={index}

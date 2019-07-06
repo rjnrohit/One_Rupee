@@ -5,6 +5,7 @@ import Profile from "./pages/profile/profile";
 import Feed from "./pages/feed/feed";
 import Request from "./pages/request/request.js";
 import LeaderBoard from "./pages/leaderboard/leaderboard.js";
+import Registration from "./pages/registration/registration.js"
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
 const Main = props => {
@@ -15,6 +16,7 @@ const Main = props => {
     pages={props.pages}/>
   )
 }
+
   return (
     <Router>
       <Switch>
@@ -30,6 +32,7 @@ const Main = props => {
     <Route path ="/feed" component={Feed}/>
     <Route path ="/request" component={Request}/>
     <Route path ="/leaderboard"component = {LeaderBoard}/>
+    <Route path ="/registration" component = {Registration}/>
       </div>
       </Switch>
     </Router>

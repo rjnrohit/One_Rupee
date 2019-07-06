@@ -1,11 +1,11 @@
 import React from "react"
 import "../css/login.css"
-
+import {Link} from "react-router-dom"
 class Login extends React.Component
 {
-    constructor()
+    constructor(props)
     {
-        super()
+        super(props)
         this.state = {
             userType:"user"
         }
@@ -41,7 +41,7 @@ class Login extends React.Component
                     <a href="./" className="forgot">Forgot Password ?</a>
                     <br/><br/>
                     <button type="submit" className="btn"><h4>Login</h4></button>
-                    <button className="btn"><h4>Sign Up</h4></button>
+                    <Link to = "/registration"><button className="btn" ><h4>Sign Up</h4></button></Link>
                 </form>
             </div>            
         )   
