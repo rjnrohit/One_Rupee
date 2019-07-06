@@ -34,7 +34,7 @@ body, html {
   }
   
   /* Full-width input fields */
-    input[type=text], input[type=password] {
+    .container input[type=text], .container input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -42,7 +42,7 @@ body, html {
     background: #f1f1f1;
   }
   
-  input[type=text]:focus, input[type=password]:focus {
+  .container input[type=text]:focus,.container input[type=password]:focus {
     background-color: #ddd;
     outline: none;
   }

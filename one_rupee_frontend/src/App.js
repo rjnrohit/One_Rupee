@@ -15,6 +15,7 @@ class App extends Component {
         { name: "Leaderboard", icon: "trophy",route:"/leaderboard" },
         { name: "History", icon: "history",route:"/history" },
         { name: "Landing", icon: "",route:"/" },
+        { name: "Registration",icon: "",route:"/registration"}
       ],
       activePage: 5,
       sidebarActive: true
