@@ -5,7 +5,7 @@ const TopBar = props => {
   return (
     <nav className="topbar-container">
       <SidebarToggle onSidebarToggle={props.onSidebarToggle} />
-      <div className="page-title">{props.currentPage.name}</div>
+       <div className="page-title">Menu</div>
     </nav>
   );
 };

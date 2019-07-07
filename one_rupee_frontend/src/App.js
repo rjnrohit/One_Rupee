@@ -15,9 +15,10 @@ class App extends Component {
         { name: "Leaderboard", icon: "trophy",route:"/leaderboard" },
         { name: "History", icon: "history",route:"/history" },
         { name: "Landing", icon: "",route:"/" },
+        { name: "Registration",icon: "",route:"/registration"}
       ],
       activePage: 5,
-      sidebarActive: false
+      sidebarActive: true
     };
   }
 
@@ -28,6 +29,7 @@ class App extends Component {
   switchPage = page => {
     const newActive = this.state.pages.findIndex(pg => pg.name === page.name);
     this.setState({ activePage: newActive });
+    console.log(this.state.pages[this.state.activePage].route)
   };
 
   render() {
@@ -37,6 +39,8 @@ class App extends Component {
         <Main
         page={this.state.pages[this.state.activePage]}
         sidebarActive={this.state.sidebarActive}
+        pageHandler={this.switchPage}
+        pages= {this.state.pages}
       /> 
       )
     }
@@ -51,6 +55,7 @@ class App extends Component {
       <Router><Switch><React.Fragment>
       <TopBar
         onSidebarToggle={this.sidebarToggleHandler}
+        active={this.state.sidebarActive}
         currentPage={this.state.pages[this.state.activePage]}
       />
       <SideBar
