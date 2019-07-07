@@ -55,6 +55,7 @@ class App extends Component {
       <Router><Switch><React.Fragment>
       <TopBar
         onSidebarToggle={this.sidebarToggleHandler}
+        active={this.state.sidebarActive}
         currentPage={this.state.pages[this.state.activePage]}
       />
       <SideBar
