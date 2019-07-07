@@ -21,7 +21,7 @@ export default () => (
                 <input type="text" placeholder ="Enter the name of your project" id="name"></input>
                 <br></br>
                 <span id="headings">Category : </span>
-                <select name="category">
+                <select name="category" style={{width:"50%"}}>
                     <option value= "AGRICULTURE" >AGRICULTURE</option>
                     <option value= "ANIMAL WELFARE">ANIMAL WELFARE</option>
                     <option value= "ART AND CRAFT" >ART AND CRAFT</option>

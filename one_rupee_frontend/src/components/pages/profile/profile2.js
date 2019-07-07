@@ -25,7 +25,7 @@ export default class Profile extends Component {
     render() {
         return (
             <div>
-                <div className="header">
+                <div className="header1">
                     <img 
                         className="profileimg"
                         src={this.state.avatar} 
