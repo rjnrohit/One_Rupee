@@ -11,8 +11,9 @@ from .serializers import UserSerializer
 def register(request, format=None):
     if request.method == 'POST':
         serializer = UserSerializer(data=request.data)
+        print(type(request.data))
         if serializer.is_valid():
             serializer.save()
-            return Response({'message': 'user has been successfully registered'}, status=status.HTTP_201_CREATED)
+            return Response({"data": serializer.data, 'message': 'user has been successfully registered'}, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

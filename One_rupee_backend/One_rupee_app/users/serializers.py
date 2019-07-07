@@ -15,6 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'mob_no',
+            'id',
         )
 
 
@@ -24,5 +25,9 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = (
-            '__all__',
+            'name',
+            'image',
+            'user',
+            'amount_donated',
+            'fb_link'
         )

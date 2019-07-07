@@ -11,6 +11,7 @@ class CardSerializer(serializers.ModelSerializer):
         model = Card
         fields = (
             #'url ',
+            'pk',
             'title',
             'category',
             'shortDescription',

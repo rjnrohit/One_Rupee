@@ -11,5 +11,6 @@ class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
         fields = (
+            'pk',
             '__all__'
         )
