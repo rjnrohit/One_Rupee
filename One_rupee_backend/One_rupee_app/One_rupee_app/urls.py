@@ -19,6 +19,7 @@ from rest_framework.authtoken import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('loginApi.urls', namespace='loginApi')),
     path('cards/', include('cards.urls', namespace='cards')),
     path('users/', include('users.urls', namespace='users')),
     path('ngo/', include('ngo.urls', namespace='ngo')),
