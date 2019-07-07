@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'ngo.apps.NgoConfig',
     'payment.apps.PaymentConfig',
+    'loginApi.apps.LoginapiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
