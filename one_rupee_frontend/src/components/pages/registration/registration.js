@@ -13,20 +13,20 @@ export default class Registration extends React.Component
             <div>
                 <header>
                     <h1 style ={{textAlign:"center"}}>Join Us Now</h1>
-                    <form action="" method ="POST" style={{marginLeft:"30%",marginRight:"30%",textAlign:"justify",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"5px"}}>
+                    <form action="" method ="POST" style={{marginLeft:"10%",marginRight:"10%",textAlign:"justify",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"5px"}}>
                         <h3 style={{textAlign:"center",marginTop:"0%"}}>Register as user</h3>
-                        <b style={{width:"20%"}}>Name   </b><input type= "text"  name="name" placeholder="Name" style={{padding:"1%",width:"80%",borderRadius:"5px"}} required/><br/><br/>
-                        <b style={{width:"20%"}}>E-Mail   </b><input type= "email"  name ="email" placeholder ="E-Mail"style={{padding:"1%",width:"79%",borderRadius:"5px"}} required/><br/><br/>
-                        <b style={{width:"20%"}}>Mobile No.   </b><input type = "text"  name = "mob_no" placeholder="Mobile No." style={{padding:"1%",width:"72%",borderRadius:"5px"}} required/><br/><br/>
-                        <b style={{width:"20%"}}>Password </b><input type = "password"  name="password" placeholder = "Enter your password" style={{padding:"1%",width:"74%",borderRadius:"5px"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Name   </b><input type= "text"  name="name" placeholder="Name" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"7%"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>E-Mail </b><input type= "email"  name ="email" placeholder ="E-Mail"style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Mobile   </b><input type = "text"  name = "mob_no" placeholder="Mobile No." style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6%"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Password </b><input type = "password"  name="password" placeholder = "Enter your password" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"4%"}} required/><br/><br/>
                         <input type ="submit" value ="Register"style={{color :"white",backgroundColor:"blue",border:"none",padding:"1% 2%",borderRadius:"5px",fontSize:"20px",textAlign:"center",marginLeft:"40%",marginRight:"40%",marginTop:""}} required/>
                     </form>
                     <br/><center>OR</center>  <br/>
-                    <form action="" method ="POST" style={{marginLeft:"30%",marginRight:"30%",marginBottom:"5%",textAlign:"justify",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"5px"}}>
+                    <form action="" method ="POST" style={{marginLeft:"10%",marginRight:"10%",marginBottom:"5%",textAlign:"justify",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"5px"}}>
                         <h3 style={{textAlign:"center",marginTop:"0%"}}>Register as NGO</h3>
-                        <b style={{width:"20%"}}>Name of NGO </b><input type= "text"  name="name" placeholder="Name" style={{padding:"1%",width:"67%",borderRadius:"5px"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Name </b><input type= "text"  name="name" placeholder="Name of NGO" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"7%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>Category   </b>
-                        <select name="category" style={{padding:"1%",width:"74%",borderRadius:"5px"}} required>
+                        <select name="category" style={{padding:"1%",width:"50%",borderRadius:"5px", marginLeft:"4.5%"}} required>
                         <option value= "AGRICULTURE" >AGRICULTURE</option>
                         <option value= "ANIMAL WELFARE">ANIMAL WELFARE</option>
                         <option value= "ART AND CRAFT" >ART AND CRAFT</option>
@@ -51,9 +51,9 @@ export default class Registration extends React.Component
                         <option value= "WOMEN">WOMEN</option>
                         <option value= "OTHERS">OTHERS</option>
                 </select><br/><br/>
-                        <b style={{width:"20%"}}>E-Mail   </b><input type= "email"  name ="email" placeholder ="E-Mail"style={{padding:"1%",width:"79%",borderRadius:"5px"}} required/><br/><br/>
-                        <b style={{width:"20%"}}>Mobile No.   </b><input type = "text"  name = "mob_no" placeholder="Mobile No." style={{padding:"1%",width:"72%",borderRadius:"5px"}} required/><br/><br/>
-                        <b style={{width:"20%"}}>Password   </b><input type = "password"  name="password" placeholder = "Enter your password" style={{padding:"1%",width:"74%",borderRadius:"5px"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>E-Mail   </b><input type= "email"  name ="email" placeholder ="E-Mail"style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Mobile   </b><input type = "text"  name = "mob_no" placeholder="Mobile No." style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6%"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Password   </b><input type = "password"  name="password" placeholder = "Enter your password" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"4%"}} required/><br/><br/>
                         <input type ="submit" value ="Register"style={{color :"white",backgroundColor:"blue",border:"none",padding:"1% 2%",borderRadius:"5px",fontSize:"20px",textAlign:"center",marginLeft:"40%",marginRight:"40%"}} required/>
                     </form>
                 </header>
