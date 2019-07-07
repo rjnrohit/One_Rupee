@@ -32,6 +32,10 @@
     border: 1px solid #cfcece;
   }
 
+  .actions {
+    padding-top: 10px;
+  }
+
   .button {
     display:block;
     margin: auto;
@@ -43,7 +47,7 @@
 
   #headings {
     text-transform: uppercase;
-    word-spacing: 10px;
+    word-spacing: 5px;
   }
 
   #name{
