@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./profile.css"
-
+import {Link} from "react-router-dom"
 const sample = {
     name: "Shubham Bhagat",
     email: "sbhagat@iitk.ac.in",
@@ -40,9 +40,9 @@ export default class Profile extends Component {
                 <div className="body">
                     <span>You have donated <span style={{color:"red"}}>&#8377;{this.state.amountDonated}</span> in  {this.state.donations} donations</span> 
                     <br></br> 
-                    <span>Click <a href="/feed">here</a> to donate more....</span><br></br><br></br><br></br>
-                    <span>Click <a href="/history">here</a> to view your donation history</span><br></br>
-                    <span>Click <a href="/leaderboard">here</a> to view your rank</span><br></br>
+                    <span>Click <Link to = "/feed" onClick = {() => this.props.pageHandler(this.props.pages[1]) } > here</Link>  to donate more....</span><br></br><br></br><br></br>
+                    <span>Click <Link to = "/history" onClick = {() => this.props.pageHandler(this.props.pages[4]) } > here</Link>  to view your donation history</span><br></br>
+                    <span>Click <Link to = "/leaderboard" onClick = {() => this.props.pageHandler(this.props.pages[3]) } > here</Link>  to view your rank</span><br></br>
                 </div>
             </div>
         );
