@@ -5,11 +5,14 @@ from rest_framework.decorators import api_view
 from .serializers import NgoSerializer
 from .models import Ngo
 from django.contrib.auth.models import AnonymousUser
+from django.contrib.auth.hashers import make_password
 
 
 @api_view(['POST', ])
 def register(request):
     if request.method == 'POST':
+        request.data["password"] = make_password(
+            request.data["password"], salt=None, hasher='default')
         serializer = NgoSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
