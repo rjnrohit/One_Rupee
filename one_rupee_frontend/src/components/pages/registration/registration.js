@@ -36,7 +36,6 @@ export default class Registration extends React.Component
     }
     submitu = () =>
     {
-        console.log(this.state)
         axios.post("http://localhost:8000/users/register/",{
             first_name:this.state.first_name,
             last_name:this.state.last_name,
@@ -54,7 +53,6 @@ export default class Registration extends React.Component
     }
     submitn = () =>
     {
-        console.log(this.state)
         axios.post("http://localhost:8000/users/register/",{
             ngo_name:this.state.ngo_name,
             username:this.state.usernamen,
