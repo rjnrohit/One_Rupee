@@ -23,7 +23,10 @@ export default class Registration extends React.Component
             Ngo_certificate:"",
             Ngo_website:"",
             mob_non:"",
-            isSignedUp:false
+            isSignedUp:false,
+            pmatchu:true,
+            pmatchn:true,
+
         };
     }
 
@@ -36,24 +39,35 @@ export default class Registration extends React.Component
     }
     submitu = () =>
     {
-        axios.post("http://localhost:8000/users/register/",{
+        if(this.state.passwordu===this.state.cpasswordu)
+        {
+            this.setState({pmatchu:true})
+            axios.post("http://localhost:8000/users/register/",{
             first_name:this.state.first_name,
             last_name:this.state.last_name,
             username:this.state.usernameu,
             password:this.state.passwordu,
             Email:this.state.Emailu,
             mob_no:parseInt(this.state.mob_nou)
-        }).then(res => {
-            alert("success")
-            this.setState({isSignedUp:true})
-        }).catch(err=>{
-            alert(err);
-            console.log(err.response.data)
-        })
+            }).then(res => {
+                alert("Successfully Registered")
+                this.setState({isSignedUp:true})
+            }).catch(err=>{
+                alert(err);
+                console.log(err.response.data)
+            })
+        }
+        else
+        {
+            this.setState({pmatchu:false})
+        }
     }
     submitn = () =>
     {
-        axios.post("http://localhost:8000/users/register/",{
+        if(this.state.passwordn===this.state.cpasswordn)
+        {
+            this.setState({pmatchn:true})
+            axios.post("http://localhost:8000/users/register/",{
             ngo_name:this.state.ngo_name,
             username:this.state.usernamen,
             password:this.state.passwordn,
@@ -62,13 +76,18 @@ export default class Registration extends React.Component
             Ngo_certificate:this.state.Ngo_certificate,
             Ngo_website:this.state.Ngo_website,
             mob_no:parseInt(this.state.mob_non)
-        }).then(res => {
-            alert("success")
-            this.setState({isSignedUp:true})
-        }).catch(err=>{
-            alert(err.response.data);
-            console.log(err.response.data)
-        })
+            }).then(res => {
+                alert("Successfully Registered");
+                this.setState({isSignedUp:true})
+            }).catch(err=>{
+                alert(err.response.data);
+                console.log(err.response.data)
+            })
+        }
+        else
+        {
+            this.setState({pmatchn:false})
+        }
     }
     render()
     {
@@ -79,6 +98,7 @@ export default class Registration extends React.Component
                     <h1 style ={{textAlign:"center"}}>Join Us Now</h1>
                     <div  style={{marginLeft:"20%",marginRight:"20%",textAlign:"justify",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"15px"}}>
                         <h3 style={{textAlign:"center",marginTop:"0%"}}>Register as user</h3>
+                        {this.state.pmatchu === false ?<h4 style={{color:"red"}}>! Passwords don't match</h4> :null}
                         <b style={{width:"20%"}}>Name   </b>
                         <input type= "text"  onChange={this.handleChange} value={this.state.first_name} name="first_name" placeholder="First Name" style={{padding:"1%",width:"30%",borderRadius:"5px", marginLeft:"7%"}} required/>
                         <input type= "text"   onChange={this.handleChange} value={this.state.last_name}name="last_name" placeholder="Last Name" style={{padding:"1%",width:"30%",borderRadius:"5px", marginLeft:"7%"}} required/><br/><br/>
@@ -97,6 +117,7 @@ export default class Registration extends React.Component
                     <br/><center>OR</center>  <br/>
                     <div style={{marginLeft:"20%",marginRight:"20%",marginBottom:"5%",textAlign:"justify",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"15px"}}>
                         <h3 style={{textAlign:"center",marginTop:"0%"}}>Register as NGO</h3>
+                        {this.state.pmatchn === false ?<h4 style={{color:"red"}}>! Passwords don't match</h4> :null}
                         <b style={{width:"20%"}}>Name </b><input  type= "text" onChange={this.handleChange}  value={this.state.ngo_name} name="ngo_name" placeholder="Name of NGO" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"7%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>Category   </b>
                         <select  onChange={this.handleChange} name="category" value={this.state.category} style={{padding:"1%",width:"50%",borderRadius:"5px", marginLeft:"3.5%"}} required>
@@ -137,7 +158,7 @@ export default class Registration extends React.Component
                         <input type= "url"  name ="Ngo_certificate" value ={this.state.Ngo_certificate} onChange={this.handleChange} placeholder ="NGO Certificate"style={{padding:"1%",width:"70%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>NGO website</b>
                         <input type= "url"  name ="Ngo_website" value={this.state.Ngo_website}  onChange={this.handleChange} placeholder ="NGO website"style={{padding:"1%",width:"70%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
-                        <button  onClick={this.submitn} value ="Register"style={{color :"white",backgroundColor:"blue",border:"none",padding:"1% 2%",borderRadius:"5px",fontSize:"20px",textAlign:"center",marginLeft:"40%",marginRight:"40%"}} >Register</button>
+                        <button  onClick={this.submitn} value ="Register" style={{color :"white",backgroundColor:"blue",border:"none",padding:"1% 2%",borderRadius:"5px",fontSize:"20px",textAlign:"center",marginLeft:"40%",marginRight:"40%"}} >Register</button>
                     </div>
                 </header>
             </div>
