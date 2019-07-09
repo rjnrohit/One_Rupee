@@ -118,7 +118,7 @@ export default class Registration extends React.Component
                     <div style={{marginLeft:"20%",marginRight:"20%",marginBottom:"5%",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"15px"}}>
                         <h3 style={{textAlign:"center",marginTop:"0%"}}>Register as NGO</h3>
                         {this.state.pmatchn === false ?<h4 style={{color:"red"}}>! Passwords don't match</h4> :null}
-                        <b style={{width:"20%"}}>Name </b><input  type= "text" onChange={this.handleChange}  value={this.state.ngo_name} name="ngo_name" placeholder="Name of NGO" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"7%"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Name </b><input  type= "text" onChange={this.handleChange}  value={this.state.ngo_name} name="ngo_name" placeholder="Name of NGO" style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"7%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>Category   </b>
                         <select  onChange={this.handleChange} name="category" value={this.state.category} style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"3.5%"}} required>
                             <option value= "AGC" >AGE CARE</option>
