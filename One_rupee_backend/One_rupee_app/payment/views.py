@@ -6,9 +6,12 @@ from rest_framework.response import Response
 from .serializers import PaymentSerializer
 from ngo.models import Ngo
 from users.models import user
+from rest_framework.permissions import IsAuthenticated
 
 
 class PaymentCreateView(APIView):
+    permission_classes = (IsAuthenticated,)
+
     def post(self, request, *args, **kwargs):
         data = request.data
         data["user"] = user.objects.get(username=request.data.get("user"))
@@ -22,6 +25,8 @@ class PaymentCreateView(APIView):
 
 
 class PaymentUserView(APIView):
+    permission_classes = (IsAuthenticated,)
+
     def get(self, request, *args, **kwargs):
         query_user = user.objects.get(username=request.user.username)
         payment_set = query_user.payment_set.all()
@@ -30,6 +35,8 @@ class PaymentUserView(APIView):
 
 
 class PaymentNgoView(APIView):
+    permission_classes = (IsAuthenticated,)
+
     def get(self, request, *args, **kwargs):
         query_ngo = Ngo.objects.get(username=request.user.username)
         payment_set = query_ngo.payment_set.all()
