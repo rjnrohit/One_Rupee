@@ -77,29 +77,29 @@ export default class Registration extends React.Component
             <div>
                 <header>
                     <h1 style ={{textAlign:"center"}}>Join Us Now</h1>
-                    <div  style={{marginLeft:"20%",marginRight:"20%",textAlign:"justify",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"15px"}}>
+                    <div  style={{marginLeft:"20%",marginRight:"20%",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"15px"}}>
                         <h3 style={{textAlign:"center",marginTop:"0%"}}>Register as user</h3>
                         <b style={{width:"20%"}}>Name   </b>
-                        <input type= "text"  onChange={this.handleChange} value={this.state.first_name} name="first_name" placeholder="First Name" style={{padding:"1%",width:"30%",borderRadius:"5px", marginLeft:"7%"}} required/>
-                        <input type= "text"   onChange={this.handleChange} value={this.state.last_name}name="last_name" placeholder="Last Name" style={{padding:"1%",width:"30%",borderRadius:"5px", marginLeft:"7%"}} required/><br/><br/>
+                        <input type= "text"  onChange={this.handleChange} value={this.state.first_name} name="first_name" placeholder="First Name" style={{float:"right", padding:"1%",width:"38%",borderRadius:"5px", marginLeft:"2%"}} required/>
+                        <input type= "text"   onChange={this.handleChange} value={this.state.last_name}name="last_name" placeholder="Last Name" style={{float:"right", padding:"1%",width:"38%",borderRadius:"5px"}} required/><br/><br/>
                         <b style={{width:"20%"}}>Username </b>
-                        <input type= "text"  name ="usernameu" value={this.state.usernameu}  onChange={this.handleChange} placeholder ="Username"style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
+                        <input type= "text"  name ="usernameu" value={this.state.usernameu}  onChange={this.handleChange} placeholder ="Username"style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"3%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>E-Mail </b>
-                        <input type= "email"  name ="Emailu" value={this.state.Emailu}  onChange={this.handleChange} placeholder ="E-Mail"style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
+                        <input type= "email"  name ="Emailu" value={this.state.Emailu}  onChange={this.handleChange} placeholder ="E-Mail"style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>Mobile   </b>
-                        <input type = "text"  name = "mob_nou" value ={this.state.mob_nou}  onChange={this.handleChange} placeholder="Mobile No." style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6%"}} required/><br/><br/>
+                        <input type = "text"  name = "mob_nou" value ={this.state.mob_nou}  onChange={this.handleChange} placeholder="Mobile No." style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"6%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>Password </b>
-                        <input type = "password"  name="passwordu" value={this.state.passwordu}  onChange={this.handleChange} placeholder = "Enter your password" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"3.3%"}} required/><br/><br/>
+                        <input type = "password"  name="passwordu" value={this.state.passwordu}  onChange={this.handleChange} placeholder = "Enter your password" style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"3.3%"}} required/><br/><br/>
                         <b style={{width:"20%"}}> Confirm Password </b>
-                        <input type = "password"  name="cpasswordu" value ={this.state.cpasswordu} onChange={this.handleChange}  placeholder = "Confirm your password" style={{padding:"1%",width:"70%",borderRadius:"5px", marginLeft:"3.3%"}} required/><br/><br/>
-                        <button onClick ={this.submitu} value ="Register"style={{color :"white",backgroundColor:"blue",border:"none",padding:"1% 2%",borderRadius:"5px",fontSize:"20px",textAlign:"center",marginLeft:"40%",marginRight:"40%",marginTop:""}} >Register</button>
+                        <input type = "password"  name="cpasswordu" value ={this.state.cpasswordu} onChange={this.handleChange}  placeholder = "Confirm your password" style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"3.3%"}} required/><br/><br/>
+                        <button onClick ={this.submitu} value ="Register"style={{color :"white",backgroundColor:"blue",border:"none",padding:"1% 2%",borderRadius:"5px",fontSize:"20px",textAlign:"center",marginLeft:"45%",marginRight:"45%",marginTop:""}} >Register</button>
                     </div>
                     <br/><center>OR</center>  <br/>
-                    <div style={{marginLeft:"20%",marginRight:"20%",marginBottom:"5%",textAlign:"justify",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"15px"}}>
+                    <div style={{marginLeft:"20%",marginRight:"20%",marginBottom:"5%",padding:"2% 3%",fontSize:"20px",backgroundColor:"skyblue",borderRadius:"15px"}}>
                         <h3 style={{textAlign:"center",marginTop:"0%"}}>Register as NGO</h3>
-                        <b style={{width:"20%"}}>Name </b><input  type= "text" onChange={this.handleChange}  value={this.state.ngo_name} name="ngo_name" placeholder="Name of NGO" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"7%"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Name </b><input  type= "text" onChange={this.handleChange}  value={this.state.ngo_name} name="ngo_name" placeholder="Name of NGO" style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"7%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>Category   </b>
-                        <select  onChange={this.handleChange} name="category" value={this.state.category} style={{padding:"1%",width:"50%",borderRadius:"5px", marginLeft:"3.5%"}} required>
+                        <select  onChange={this.handleChange} name="category" value={this.state.category} style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"3.5%"}} required>
                             <option value= "AGC" >AGE CARE</option>
                             <option value= "AGR" >AGRICULTURE</option>
                             <option value= "AW">ANIMAL WELFARE</option>
@@ -126,18 +126,17 @@ export default class Registration extends React.Component
                             <option value= "O">OTHERS</option>
                         </select><br/><br/>
                         <b style={{width:"20%"}}>Username </b>
-                        <input type= "text"   onChange={this.handleChange} value={this.state.usernamen} name ="usernamen" placeholder ="Username"style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>    
-                        <b style={{width:"20%"}}>E-Mail   </b><input type= "email"  value={this.state.Emailn} onChange={this.handleChange} name ="Emailn" placeholder ="E-Mail" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
-                        <b style={{width:"20%"}}>Mobile   </b><input type = "text"  onChange={this.handleChange}  value={this.state.mob_non} name = "mob_non" placeholder="Mobile No." style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"6%"}} required/><br/><br/>
-                        <b style={{width:"20%"}}>Password   </b><input type = "password"   onChange={this.handleChange} value={this.state.passwordn} name="passwordn" placeholder = "Enter your password" style={{padding:"1%",width:"80%",borderRadius:"5px", marginLeft:"3.3%"}} required/><br/><br/>
+                        <input type= "text"   onChange={this.handleChange} value={this.state.usernamen} name ="usernamen" placeholder ="Username"style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>    
+                        <b style={{width:"20%"}}>E-Mail   </b><input type= "email"  value={this.state.Emailn} onChange={this.handleChange} name ="Emailn" placeholder ="E-Mail" style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Mobile   </b><input type = "text"  onChange={this.handleChange}  value={this.state.mob_non} name = "mob_non" placeholder="Mobile No." style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"6%"}} required/><br/><br/>
+                        <b style={{width:"20%"}}>Password   </b><input type = "password"   onChange={this.handleChange} value={this.state.passwordn} name="passwordn" placeholder = "Enter your password" style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"3.3%"}} required/><br/><br/>
                         <b style={{width:"20%"}}> Confirm Password </b>
-                        <input type = "password"   onChange={this.handleChange} value ={this.state.cpasswordn} name="cpasswordn" placeholder = "Confirm your password" style={{padding:"1%",width:"70%",borderRadius:"5px", marginLeft:"3.3%"}} required/><br/><br/>
-                       
+                        <input type = "password"   onChange={this.handleChange} value ={this.state.cpasswordn} name="cpasswordn" placeholder = "Confirm your password" style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"3.3%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>NGO Certificate</b>
-                        <input type= "url"  name ="Ngo_certificate" value ={this.state.Ngo_certificate} onChange={this.handleChange} placeholder ="NGO Certificate"style={{padding:"1%",width:"70%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
+                        <input type= "url"  name ="Ngo_certificate" value ={this.state.Ngo_certificate} onChange={this.handleChange} placeholder ="NGO Certificate" style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px"}} required/><br/><br/>
                         <b style={{width:"20%"}}>NGO website</b>
-                        <input type= "url"  name ="Ngo_website" value={this.state.Ngo_website}  onChange={this.handleChange} placeholder ="NGO website"style={{padding:"1%",width:"70%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
-                        <button  onClick={this.submitn} value ="Register"style={{color :"white",backgroundColor:"blue",border:"none",padding:"1% 2%",borderRadius:"5px",fontSize:"20px",textAlign:"center",marginLeft:"40%",marginRight:"40%"}} >Register</button>
+                        <input type= "url"  name ="Ngo_website" value={this.state.Ngo_website}  onChange={this.handleChange} placeholder ="NGO website"style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
+                        <button  onClick={this.submitn} value ="Register"style={{color :"white",backgroundColor:"blue",border:"none",padding:"1% 2%",borderRadius:"5px",fontSize:"20px",textAlign:"center",marginLeft:"45%",marginRight:"45%"}} >Register</button>
                     </div>
                 </header>
             </div>
