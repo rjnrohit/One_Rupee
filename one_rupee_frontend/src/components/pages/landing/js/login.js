@@ -1,25 +1,50 @@
 import React from "react"
 import "../css/login.css"
-import {Link} from "react-router-dom"
+import {Link,Redirect} from "react-router-dom"
+import axios from "axios";
 class Login extends React.Component
 {
     constructor(props)
     {
         super(props)
         this.state = {
-            userType:"user"
+            userType:"user",
+            username:"",
+            password:"",
+            islogIn:false,
+            isError:false,
         }
     }
      loginHandler = (type) =>
     {
         this.setState({userType:type})
     }
+    changeHandler = (event) =>
+    {
+        const {name,value} =event.target;
+        this.setState({
+            [name]:value
+        })
+    }
+    Submit = () =>
+    {
+        axios.post('http://localhost:8000/login/',{
+            username:this.state.username,
+            password:this.state.password,
+            
+        }).then(res=>{
+            this.setState({islogIn:true})
+        }).catch(err=>{
+          this.setState({isError:true})
+        })
+    }
     render()
     {
+        if(this.state.islogIn === false)
         return(
             <div className="bg-img">
                 
-                <form action="http://localhost:8000/landingPage/" method ="POST" className="container">
+                <div className="container">
                     <div>  
                         <button 
                             className={"btn" + (this.state.userType==="user" ? " active": "")}
@@ -32,19 +57,25 @@ class Login extends React.Component
                             <h3>Login as a NGO</h3>
                         </button>
                     </div>
-                    <br/> 
+                    
                     {/* <h4 className="loginText">Signing in as {this.state.userType}</h4>*/}
-                    <label><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required/>
+                    {this.state.isError ===true?<h5 style={{color:"red"}}>! Username or Password incorrect</h5>:<br/>}
+                    <label><b>Username</b></label>
+                    <input type="text" placeholder="Enter your Username" name="username" onChange={this.changeHandler} value={this.state.username} required/>
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required/>
+                    <input type="password" placeholder="Enter Password" name="password" onChange={this.changeHandler} value={this.state.password} required/>
                     <a href="./" className="forgot">Forgot Password ?</a>
                     <br/><br/>
-                    <button type="submit" className="btn"><h4>Login</h4></button>
+                    <button onClick={this.Submit} className="btn"><h4>Login</h4></button>
                     <Link to = "/registration"><button className="btn" ><h4>Sign Up</h4></button></Link>
-                </form>
+                </div>
             </div>            
         )   
+        else{
+            return(
+            <Redirect to = {{pathname:"/feed"}}/>
+            )
+        }
     }
 }
 export default Login

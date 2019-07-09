@@ -100,10 +100,11 @@ export default class Registration extends React.Component
                         <h3 style={{textAlign:"center",marginTop:"0%"}}>Register as user</h3>
                         {this.state.pmatchu === false ?<h4 style={{color:"red"}}>! Passwords don't match</h4> :null}
                         <b style={{width:"20%"}}>Name   </b>
-                        <input type= "text"  onChange={this.handleChange} value={this.state.first_name} name="first_name" placeholder="First Name" style={{float:"right", padding:"1%",width:"38%",borderRadius:"5px", marginLeft:"2%"}} required/>
-                        <input type= "text"   onChange={this.handleChange} value={this.state.last_name}name="last_name" placeholder="Last Name" style={{float:"right", padding:"1%",width:"38%",borderRadius:"5px"}} required/><br/><br/>
+                        
+                        <input type= "text"   onChange={this.handleChange} value={this.state.last_name} name="last_name" placeholder="Last Name" style={{float:"right", padding:"1%",width:"38%",borderRadius:"5px", marginLeft:"2%"}} required/>
+                        <input type= "text"  onChange={this.handleChange} value={this.state.first_name} name="first_name" placeholder="First Name" style={{float:"right", padding:"1%",width:"38%",borderRadius:"5px"}} required/> <br/><br/>
                         <b style={{width:"20%"}}>Username </b>
-                        <input type= "text"  name ="usernameu" value={this.state.usernameu}  onChange={this.handleChange} placeholder ="Username"style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"3%"}} required/><br/><br/>
+                        <input type= "text"  name ="usernameu" value={this.state.usernameu}  onChange={this.handleChange} placeholder ="Username" style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"3%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>E-Mail </b>
                         <input type= "email"  name ="Emailu" value={this.state.Emailu}  onChange={this.handleChange} placeholder ="E-Mail"style={{float:"right", padding:"1%",width:"78%",borderRadius:"5px", marginLeft:"6.5%"}} required/><br/><br/>
                         <b style={{width:"20%"}}>Mobile   </b>
