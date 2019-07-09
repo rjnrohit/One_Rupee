@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Menu from "./Menu"
-
+import axios from "axios"
 const categories = [
+    'AGE CARE',
     'AGRICULTURE',
     'ANIMAL WELFARE',
     'ART AND CRAFT',
@@ -51,6 +52,7 @@ class Feed extends Component {
 
   componentDidMount() {
     // fetch
+
     this.setState({
       posts: [
         samplePost,
