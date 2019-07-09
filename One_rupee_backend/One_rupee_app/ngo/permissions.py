@@ -1,6 +1,7 @@
 from rest_framework.permissions import BasePermission
 from django.shortcuts import get_object_or_404
 from .models import Ngo
+from django.contrib.auth.models import AnonymousUser
 
 
 class IsAuthenticatedUserNgo(BasePermission):
@@ -15,3 +16,8 @@ class IsProceedByNgo(BasePermission):
         ngo = get_object_or_404(Ngo, username=request.user.username)
         print("verified 3")
         return obj.ngo == ngo
+
+
+class IsAnonymous(BasePermission):
+    def has_permission(self, request, view):
+        return isinstance(request.user, AnonymousUser)
