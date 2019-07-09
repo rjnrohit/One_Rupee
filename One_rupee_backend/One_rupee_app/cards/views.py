@@ -59,7 +59,7 @@ class CardUpdateView(UpdateAPIView):
     def get_queryset(self):
         ngo_name = self.request.user.username
         ngo = get_object_or_404(Ngo, username=ngo_name)
-        return Card.objects.all().filter(ngo=ngo, pk=self.pk)
+        return Card.objects.all().filter(ngo=ngo, **self.kwargs)
 
 
 class CardDeleteView(DestroyAPIView):
@@ -70,4 +70,4 @@ class CardDeleteView(DestroyAPIView):
     def get_queryset(self):
         ngo_name = self.request.user.username
         ngo = get_object_or_404(Ngo, username=ngo_name)
-        return Card.objects.all().filter(ngo=ngo, pk=self.pk)
+        return Card.objects.all().filter(ngo=ngo, **self.kwargs)
