@@ -19,7 +19,7 @@ export default class Registration extends React.Component
             usernamen:"",
             passwordn:"",
             cpasswordn:"",
-            category:"",
+            category:"AGC",
             Ngo_certificate:"",
             Ngo_website:"",
             mob_non:"",
@@ -53,7 +53,7 @@ export default class Registration extends React.Component
                 alert("Successfully Registered")
                 this.setState({isSignedUp:true})
             }).catch(err=>{
-                alert(err);
+                
                 console.log(err.response.data)
             })
         }
@@ -67,7 +67,7 @@ export default class Registration extends React.Component
         if(this.state.passwordn===this.state.cpasswordn)
         {
             this.setState({pmatchn:true})
-            axios.post("http://localhost:8000/users/register/",{
+            axios.post("http://localhost:8000/ngo/register/",{
             ngo_name:this.state.ngo_name,
             username:this.state.usernamen,
             password:this.state.passwordn,
@@ -80,7 +80,7 @@ export default class Registration extends React.Component
                 alert("Successfully Registered");
                 this.setState({isSignedUp:true})
             }).catch(err=>{
-                alert(err.response.data);
+                
                 console.log(err.response.data)
             })
         }
