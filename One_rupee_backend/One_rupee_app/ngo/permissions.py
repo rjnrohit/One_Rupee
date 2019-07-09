@@ -1,12 +1,6 @@
-from rest_framework.permissions import BasePermission, SAFE_METHODS
+from rest_framework.permissions import BasePermission
 from django.shortcuts import get_object_or_404
-from ngo.models import Ngo
-
-
-class ReadOnly(BasePermission):
-    def has_permission(self, request, view):
-        print("verified 1")
-        return request.method in SAFE_METHODS
+from .models import Ngo
 
 
 class IsAuthenticatedUserNgo(BasePermission):
