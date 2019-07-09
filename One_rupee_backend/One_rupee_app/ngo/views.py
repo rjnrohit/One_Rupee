@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from .serializers import NgoSerializer
 from .models import Ngo
 from django.contrib.auth.models import AnonymousUser
@@ -9,6 +9,7 @@ from django.contrib.auth.hashers import make_password
 
 
 @api_view(['POST', ])
+@permission_classes([])
 def register(request):
     if request.method == 'POST':
         request.data["password"] = make_password(

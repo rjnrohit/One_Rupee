@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .isLogged import IsLoggedIn
 from ngo.serializers import NgoSerializer
@@ -14,6 +15,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 class LoginView(APIView):
+    permission_classes = ()
+
     def get(self, request, *args, **kwargs):
         if IsLoggedIn(request):
             query_name = IsLoggedIn(request).username
@@ -46,7 +49,11 @@ class LoginView(APIView):
                 else:
                     request.session["username"] = auth_user.username
                     login(request, auth_user)
-                    return Response({'message': "login successfull", "IsNgo": request.user.IsNgo}, status=status.HTTP_200_OK)
+                    try:
+                        logger = Ngo.objects.get(username=auth_user.username)
+                    except:
+                        logger = user.objects.get(username=auth_user.username)
+                    return Response({'message': "login successfull", "IsNgo": logger.IsNgo}, status=status.HTTP_200_OK)
             else:
                 return Response({'message:please enter valid credentials1'}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -56,7 +63,8 @@ class LoginView(APIView):
 
 # @csrf_exempt
 @api_view(['GET', 'POST'])
+@permission_classes((IsAuthenticated, ))
 def logout_view(request):
-    print(request.user)
+    print(request.user, request.auth)
     logout(request)
     return Response({'message': 'logout successfull'}, status=status.HTTP_204_NO_CONTENT)
