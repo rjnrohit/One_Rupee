@@ -5,6 +5,37 @@ from django.shortcuts import reverse
 
 
 class Ngo(User, models.Model):
+    CATEGORY_CHOICES = (
+        ('AGC',
+         'Age care (care for the aged/Older persons)'),
+        ('AGR', 'Agriculture'),
+        ('AW', 'Animal Welfare'),
+        ('ANC', 'Art & Craft'),
+        ('CE', 'Child Education'),
+        ('CUD', 'Cities/Urban Development'),
+        ('CD', 'Community Development'),
+        ('CNH', ' Culture & Heritage'),
+        ('D', 'Disability'),
+        ('DM', 'Disaster Management'),
+        ('EDU', 'Education'),
+        ('ENVI', 'Environmental issues'),
+        ('HNH', 'Health & Hygiene'),
+        ('HA', ' HIV/AIDS'),
+        ('HS', 'Housing & Slums'),
+        ('P', 'Population'),
+        ('PR', 'Poverty Removal'),
+        ('RD', 'Rural Development'),
+        ('STD', 'Science & Technology Development'),
+        ('TP', 'Tribal people'),
+        ('WM', 'Waste Management'),
+        ('DW', 'Drinking Water'),
+        ('WO', 'Women'),
+        ('O', 'others')
+
+
+    )
+    category = models.CharField(
+        ("category"), max_length=50, choices=CATEGORY_CHOICES, blank=False)
 
     class Meta:
         verbose_name = ("Ngo")

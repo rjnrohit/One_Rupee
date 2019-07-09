@@ -14,6 +14,7 @@ class NgoSerializer(serializers.ModelSerializer):
             'ngo_name',
             'Email',
             'password',
+            'category',
             'Ngo_certificate',
             'Ngo_website',
 
