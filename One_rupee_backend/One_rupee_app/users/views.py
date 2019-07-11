@@ -8,6 +8,8 @@ from rest_framework.generics import UpdateAPIView
 from .models import user, Profile
 from rest_framework.permissions import IsAuthenticated
 from .permissions import IsAuthenticatedUser, IsProceedByUser, IsAnonymous
+from knox.models import AuthToken
+from django.contrib.auth.models import User
 # from django.urls import reverse
 # from django.views.decorators.csrf import csrf_exempt
 
@@ -24,7 +26,14 @@ def register(request, format=None):
             p = Profile.objects.create(user=user.objects.get(
                 username=serializer.data["username"]), name=serializer.data['first_name']+' '+serializer.data['last_name'])
             p.save()
-            return Response({"data": serializer.data, 'message': 'user has been successfully registered'}, status=status.HTTP_201_CREATED)
+            return Response(
+                {
+                    "data": serializer.data,
+                    'message': 'user has been successfully registered',
+                    'token': AuthToken.objects.create(User.objects.get(username=serializer.data["username"]))[1]
+                },
+                status=status.HTTP_201_CREATED
+            )
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

@@ -41,7 +41,7 @@ class Login extends React.Component {
       )
       .then(res => {
         this.setState({ islogIn: true });
-        console.log(res.headers);
+        console.log(res.cookies);
       })
       .catch(err => {
         console.log(err);

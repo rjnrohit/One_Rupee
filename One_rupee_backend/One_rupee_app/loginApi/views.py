@@ -11,6 +11,7 @@ from users.models import user
 from ngo.models import Ngo
 from django.contrib.auth import authenticate, login, logout, models
 from django.views.decorators.csrf import csrf_exempt
+from knox.models import AuthToken
 # we will implement tokenAuthentication later
 
 
@@ -57,10 +58,8 @@ class LoginView(APIView):
                         except:
                             logger = user.objects.get(
                                 username=auth_user.username)
-                        r = Response({'message': "login successfull", "IsNgo": logger.IsNgo}, status=status.HTTP_200_OK, headers={
-                                     'Access-Control-Allow-Credentials': True, 'Access-Control-Allow-Origin': 'http://localhost:3001/'})
-                        print(r.data)
-                        return r
+
+                        return Response({'message': "login successfull", "IsNgo": logger.IsNgo, "token": AuthToken.objects.create(auth_user)[1]}, status=status.HTTP_200_OK)
                 else:
                     return Response({'message:please enter valid credentials'}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -71,9 +70,9 @@ class LoginView(APIView):
 
 
 # @csrf_exempt
-@api_view(['GET', 'POST'])
-@permission_classes((IsAuthenticated, ))
-def logout_view(request):
-    print(request.user, request.auth)
-    logout(request)
-    return Response({'message': 'logout successfull'}, status=status.HTTP_204_NO_CONTENT)
+# @api_view(['GET', 'POST'])
+# @permission_classes((IsAuthenticated, ))
+# def logout_view(request):
+#     print(request.user, request.auth)
+#     logout(request)
+#     return Response({'message': 'logout successfull'}, status=status.HTTP_204_NO_CONTENT)

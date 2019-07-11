@@ -11,6 +11,8 @@ from .serializers import ProfileSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from .permissions import IsAuthenticatedUserNgo, IsProceedByNgo, IsAnonymous
+from knox.models import AuthToken
+from django.contrib.auth.models import User
 
 
 @api_view(['POST', ])
@@ -26,7 +28,14 @@ def register(request):
                 username=serializer.data["username"]), contact=78)
             p.save()
             # we will implement json response later
-            return Response({'data': serializer.data, 'message': "success"}, status=status.HTTP_201_CREATED)
+            return Response(
+                {
+                    "data": serializer.data,
+                    'message': 'ngo has been successfully registered',
+                    'token': AuthToken.objects.create(User.objects.get(username=serializer.data["username"]))[1]
+                },
+                status=status.HTTP_201_CREATED
+            )
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
