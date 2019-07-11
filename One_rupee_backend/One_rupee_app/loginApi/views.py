@@ -37,7 +37,7 @@ class LoginView(APIView):
 
     # @csrf_exempt
     def post(self, request, *args, **kwargs):
-        if request.data.has_key("username") and request.data.has_key("password"):
+        if "username" in request.data.keys() and "password" in request.data.keys():
             username = request.data.get("username")
             password = request.data.get("password")
             if username and password:
