@@ -59,7 +59,7 @@ class PayView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request, *args, **kwargs):
-        amount = request.data["amount"]
+        amount = int(request.data["amount"])
         to_ngo = Ngo.objects.get(username=request.data["ngo"])
         try:
             query_user = user.objects.get(username=request.user.username)
@@ -70,20 +70,20 @@ class PayView(APIView):
                      status=status.HTTP_400_BAD_REQUEST)
         else:
             request_dict = {
-                'MID': 'my_merchant id',
+                'MID': "fzUaQI83778616308119",
                 'ORDER_ID': str(request.user.pk)+'@'+str(to_ngo.pk)+'@'+str(return_id()),
                 'CUST_ID': str(request.user.pk),
                 'TXN_AMOUNT': str(request.data["amount"]),
                 'CHANNEL_ID': 'WEB',  # we should change for production
-                'WEBSITE': 'WEBSTAGING',  # we should change for production
+                'WEBSITE': 'DEFAULT',  # we should change for production
                 'INDUSTRY_TYPE_ID': "Retail",  # we should change for production
-                "MOBILE_NO": str(query_user.mob_no) if query_user.IsNgo else '9680549779',
+                "MOBILE_NO": str(query_user.mob_no) if query_user.IsNgo is False else '9680549779',
                 "EMAIL": str(query_user.Email),
-                'CALLBACK_URL': 'http://localhost:8000/payment//handleRequestFromPaytm/'
+                'CALLBACK_URL': 'http://localhost:8000/payment/handleRequestFromPaytm/'
             }
             checksum = Checksum.generate_checksum(
-                request_dict, "MY_MERCHANT_KEY_HERE")
-            paytm_post_url = 'https://securegw-stage.paytm.in/order/process'
+                request_dict, "ttZcV5MSvqz_9#@o")
+            paytm_post_url = 'https://securegw.paytm.in/order/process'
             return Response({'request_dict': request_dict, 'checksum': checksum, 'paytm_post_url': paytm_post_url}, status=status.HTTP_200_OK)
 
 
@@ -106,11 +106,11 @@ def handleRequestFromPaytm(request, format=None):
         serializer_payment = PaymentSerializer(data=data)
         del request.POST["CHECKSUMHASH"]
         isValidChecksum = Checksum.verify_checksum(
-            request.POST, "YOUR_MERCHANT_KEY_HERE", checksumhash)
+            request.POST, "ttZcV5MSvqz_9#@o", checksumhash)
         if isValidChecksum:
             print("Checksum Matched")
             response = verify_response(
-                request.POST["MID"], 'my_merchant_key', request.POST["ORDERID"], checksumhash)
+                request.POST["MID"], 'ttZcV5MSvqz_9#@o', request.POST["ORDERID"], checksumhash)
             if response["STATUS"] == 'TXN_SUCCESS':
                 serializer_result = Payment_successSerializer(response)
                 success = 1

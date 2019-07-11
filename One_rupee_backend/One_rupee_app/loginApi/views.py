@@ -37,6 +37,7 @@ class LoginView(APIView):
 
     # @csrf_exempt
     def post(self, request, *args, **kwargs):
+        print("request received")
         if "username" in request.data.keys() and "password" in request.data.keys():
             username = request.data.get("username")
             password = request.data.get("password")
@@ -56,7 +57,10 @@ class LoginView(APIView):
                         except:
                             logger = user.objects.get(
                                 username=auth_user.username)
-                        return Response({'message': "login successfull", "IsNgo": logger.IsNgo}, status=status.HTTP_200_OK)
+                        r = Response({'message': "login successfull", "IsNgo": logger.IsNgo}, status=status.HTTP_200_OK, headers={
+                                     'Access-Control-Allow-Credentials': True, 'Access-Control-Allow-Origin': 'http://localhost:3001/'})
+                        print(r.data)
+                        return r
                 else:
                     return Response({'message:please enter valid credentials'}, status=status.HTTP_400_BAD_REQUEST)
 

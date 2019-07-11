@@ -104,8 +104,11 @@ def __unpad__(s): return s[0:-ord(s[-1])]
 
 def __encode__(to_encode, iv, key):
     # Pad
-    to_encode = __pad__(to_encode)
-    # Encrypt
+    to_encode = __pad__(to_encode)  # © 2019, One97 Communications Pvt. Ltd
+
+    # Terms of Service
+    # Privacy Policy
+    # # Encrypt
     c = AES.new(key.encode('utf-8'), AES.MODE_CBC, iv.encode('utf-8'))
     to_encode = c.encrypt(to_encode.encode('utf-8'))
     # Encode
