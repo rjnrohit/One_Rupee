@@ -15,7 +15,7 @@ class CardSerializer(serializers.ModelSerializer):
             'title',
             'category',
             'shortDescription',
-            'longDescritption',
+            'longDescription',
             'amount_requested',
             'ngo'
         )
