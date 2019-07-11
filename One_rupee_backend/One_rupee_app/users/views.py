@@ -8,7 +8,6 @@ from rest_framework.generics import UpdateAPIView
 from .models import user, Profile
 from rest_framework.permissions import IsAuthenticated
 from .permissions import IsAuthenticatedUser, IsProceedByUser, IsAnonymous
-from django.db.models.signals import post_save
 # from django.urls import reverse
 # from django.views.decorators.csrf import csrf_exempt
 
