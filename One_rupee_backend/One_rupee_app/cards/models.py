@@ -38,6 +38,8 @@ class Card(models.Model):
     category = models.CharField(
         ("category"), max_length=50, choices=CATEGORY_CHOICES, blank=False)
     shortDescription = models.TextField(("shortDescription"))
+    longDescription = models.TextField(("longDescription"))
+
     amount_requested = models.DecimalField(
         ("amount_requested"), max_digits=10, decimal_places=0, default=0)
     ngo = models.ForeignKey(Ngo, verbose_name=(

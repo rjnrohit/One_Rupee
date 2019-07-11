@@ -37,28 +37,33 @@ class LoginView(APIView):
 
     # @csrf_exempt
     def post(self, request, *args, **kwargs):
-        username = request.data.get("username")
-        password = request.data.get("password")
-        if username and password:
-            auth_user = authenticate(request, username=(
-                username), password=(password))
-            if auth_user:
-                if isinstance(request.user, models.AnonymousUser) is False:
-                    print("hello")
-                    return Response({"message": 'you have already logged in'}, status=status.HTTP_200_OK)
+        if request.data.has_key("username") and request.data.has_key("password"):
+            username = request.data.get("username")
+            password = request.data.get("password")
+            if username and password:
+                auth_user = authenticate(request, username=(
+                    username), password=(password))
+                if auth_user:
+                    if isinstance(request.user, models.AnonymousUser) is False:
+                        print("hello")
+                        return Response({"message": 'you have already logged in'}, status=status.HTTP_200_OK)
+                    else:
+                        request.session["username"] = auth_user.username
+                        login(request, auth_user)
+                        try:
+                            logger = Ngo.objects.get(
+                                username=auth_user.username)
+                        except:
+                            logger = user.objects.get(
+                                username=auth_user.username)
+                        return Response({'message': "login successfull", "IsNgo": logger.IsNgo}, status=status.HTTP_200_OK)
                 else:
-                    request.session["username"] = auth_user.username
-                    login(request, auth_user)
-                    try:
-                        logger = Ngo.objects.get(username=auth_user.username)
-                    except:
-                        logger = user.objects.get(username=auth_user.username)
-                    return Response({'message': "login successfull", "IsNgo": logger.IsNgo}, status=status.HTTP_200_OK)
-            else:
-                return Response({'message:please enter valid credentials1'}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({'message:please enter valid credentials'}, status=status.HTTP_400_BAD_REQUEST)
 
+            else:
+                return Response({'message': 'please enter valid credentials'}, status=status.HTTP_400_BAD_REQUEST)
         else:
-            return Response({'message': 'please enter valid credentials2'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "it seems that you didn't provided  your username or password"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 # @csrf_exempt
