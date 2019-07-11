@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Menu from "./Menu"
-import axios from "axios"
+// import axios from "axios"
 const categories = [
     'AGE CARE',
     'AGRICULTURE',

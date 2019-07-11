@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import "./profile.css"
 import {Link} from "react-router-dom"
+import ProfilePic from "./profilePic"
+
 const sample = {
     name: "Shubham Bhagat",
     email: "sbhagat@iitk.ac.in",
@@ -26,11 +28,9 @@ export default class Profile extends Component {
         return (
             <div>
                 <div className="header1">
-                    <img 
-                        className="profileimg"
-                        src={this.state.avatar} 
-                        alt='avatar'
-                    />
+                    <div className="profileimg">
+                        <ProfilePic pic={this.props.pic} changePic={this.props.changePic}/>
+                    </div>
                     <div className="headerInfo">
                         <span className="name">{this.state.name}</span><br></br>
                         <span className="email">{this.state.email}</span><br></br>

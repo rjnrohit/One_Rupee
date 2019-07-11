@@ -25,8 +25,8 @@ const SideBar = props => {
         <div className="sidebar">
           <Grid container justify="center" alignItems="center">
             <Avatar 
-              alt="https://docs.atlassian.com/aui/8.3.1/docs/images/avatar-person.svg"
-              src="https://docs.atlassian.com/aui/8.3.1/docs/images/avatar-person.svg"
+              alt=""
+              src={props.profilePic}
               className={useStyles().avatar}
             />
           </Grid>

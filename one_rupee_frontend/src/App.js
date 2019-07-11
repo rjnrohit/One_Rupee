@@ -18,7 +18,8 @@ class App extends Component {
         { name: "Registration",icon: "",route:"/registration"}
       ],
       activePage: 5,
-      sidebarActive: true
+      sidebarActive: true,
+      profilePic: "https://docs.atlassian.com/aui/8.3.1/docs/images/avatar-person.svg"
     };
   }
 
@@ -32,6 +33,10 @@ class App extends Component {
     console.log(this.state.pages[this.state.activePage].route)
   };
 
+  changePic = path => {
+    this.setState({profilePic: path})
+  }
+
   render() {
     const Ab = () =>
     {
@@ -41,6 +46,8 @@ class App extends Component {
         sidebarActive={this.state.sidebarActive}
         pageHandler={this.switchPage}
         pages= {this.state.pages}
+        pic={this.state.profilePic}
+        changePic={this.changePic}
       /> 
       )
     }
@@ -63,6 +70,7 @@ class App extends Component {
         activePage={this.state.activePage}
         pageHandler={this.switchPage}
         active={this.state.sidebarActive}
+        profilePic = {this.state.profilePic}
       />
       {/* Container for the main body */}
       <Route path={this.state.activePage.route} exact component ={Ab}/>
