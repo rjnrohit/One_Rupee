@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Menu from "./Menu"
-// import axios from "axios"
+import axios from "axios";
 const categories = [
     'AGE CARE',
     'AGRICULTURE',
@@ -28,6 +28,33 @@ const categories = [
     'OTHERS'
 ]
 
+const shortCategories = [
+    "AGC" ,
+    "AGR" ,
+    "AW",
+    "ANC" ,
+    "CE" ,
+    "CUD",
+    "CD",
+    "CNH" ,
+    "D",
+    "DM",
+    "DW",
+    "EDU",
+    "ENVI",
+    "HNH",
+    "HA" ,
+    "HS",
+    "P",
+    "PR",
+    "RD",
+    "STD",
+    "TP",
+    "WM",
+    "W",
+    "O"
+]
+
 const samplePost = {
   ngo: {
     title: "[TITLE]",
@@ -46,22 +73,52 @@ const samplePost = {
 };
 
 class Feed extends Component {
-  state = {
-    posts: []
-  };
+  constructor(props)
+{
+  super(props)
+  this.state={ 
+    posts: [],
+    token:this.props.token,
+  }
+}
 
   componentDidMount() {
-    // fetch
+    axios.interceptors.response.use(res=>{
+      console.log(res.data.results)
+      res.data.results.map(info=>{
+        const idx = shortCategories.indexOf(info.category)
+        const newPost = {
+          ngo: {
+            title: info.title,
+            summary: info.shortDescription,
+            category: categories[idx],
+            description: info.longDescription,
+            required: info.amount_requested,
+            obtained: 0,
+          },
+          type: {
+            name: info.ngo.ngo_name,
+            image: ""
+          }
+        }
+        this.setState(prevState=>({
+          posts: [...prevState.posts, newPost]
+        }))}
+      )
+      return res;
+    })
+    axios.get("http://localhost:8000/cards/all-cards/",{
+      headers:{Authorization:"Token "+this.state.token}
+    }).then(res=>
+      {
+        console.log("success")
+      }).catch(err=>
+        {
+          console.log(err.response)
+        })
 
     this.setState({
       posts: [
-        samplePost,
-        samplePost,
-        samplePost,
-        samplePost,
-        samplePost,
-        samplePost,
-        samplePost,
       ],
       search:""
     });
@@ -86,7 +143,6 @@ class Feed extends Component {
       <div>
         <div style={{textAlign:"center",marginTop:"2%"}}>
             <input placeholder="Search here" id ="input" value = {this.state.search} onChange={this.UpdateChange.bind(this)}style={{textAlign:"center",height:"30px",width:"45%",fontSize:"24px",borderRadius:"5px",border:"1px solid black"}}/>
-            {/* <button id="button" onClick={this.Search} style={{height:"30px",fontSize:"20px",margin:"0.5%",borderRadius:"5px",backgroundColor:"var(--sidebar-dark-color)",color:"white"}}>Search</button><br/>  */}
         </div>
         <Menu posts={searched_posts}/>
       </div>

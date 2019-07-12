@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/login.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect,BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -12,8 +12,10 @@ class Login extends React.Component {
       username: "",
       password: "",
       islogIn: false,
-      isError: false
+      isError: false,
+      token:this.props.token,
     };
+    
   }
   loginHandler = type => {
     this.setState({ userType: type });
@@ -25,29 +27,37 @@ class Login extends React.Component {
     });
   };
   Submit = () => {
-    axios
+    axios.interceptors.response.use(res =>
+      {
+        this.setState({token:res.data.token})
+        // this.props.changeToken(res.data.token);
+        return res;
+      })
+   axios
       .post(
         "http://localhost:8000/login/",
         {
           username: this.state.username,
           password: this.state.password
-        },
-        {
-          headers: {
-            "Access-Control-Allow-Credentials": true
-          }
-        },
-        { withCredentials: true }
+        }
       )
-      .then(res => {
+      .then(res =>  {
         this.setState({ islogIn: true });
-        console.log(res.cookies);
+        // const {token} = this.state;
+        // token.push(res.data.token);
+        // this.setState({token})
+        
+        
       })
       .catch(err => {
         console.log(err);
         this.setState({ isError: true });
       });
   };
+  f =(d)=>
+  {
+    this.setState({token:d})
+  }
   render() {
     if (this.state.islogIn === false)
       return (
@@ -78,9 +88,7 @@ class Login extends React.Component {
             ) : (
               <br />
             )}
-            <label>
-              <b>Username</b>
-            </label>
+              <b style={{fontSize:"20px"}}>Username</b>
             <input
               type="text"
               placeholder="Enter your Username"
@@ -89,9 +97,8 @@ class Login extends React.Component {
               value={this.state.username}
               required
             />
-            <label>
-              <b>Password</b>
-            </label>
+              <b style={{fontSize:"20px"}}>Password</b>
+            
             <input
               type="password"
               placeholder="Enter Password"
@@ -117,7 +124,8 @@ class Login extends React.Component {
         </div>
       );
     else {
-      return <Redirect to={{ pathname: "/feed" }} />;
+      this.props.changeToken(this.state.token)
+      return (<Redirect to={{ pathname: "/feed" }} />);
     }
   }
 }

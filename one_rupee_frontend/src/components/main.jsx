@@ -16,6 +16,8 @@ const Main = props => {
     pages={props.pages}
     pic={props.pic}
     changePic={props.changePic}
+    token={props.token}
+        changeToken={props.changeToken}
     />
   )
 }
@@ -29,13 +31,13 @@ const Main = props => {
           (props.sidebarActive ? "" : " sidebar-hidden") 
         }
       >
-    <Route path ="/" exact component = {Landing}/>
-    <Route path ="/history" component={History}/>
+    <Route path ="/" exact component = {()=><Landing token={props.token} changeToken={props.changeToken}/>}/>
+    <Route path ="/history" component={()=><History token={props.token} changeToken={props.changeToken}/>}/>
     <Route path ="/profile" component = {Profile2}/>
-    <Route path ="/feed" component={Feed}/>
-    <Route path ="/request" component={Request}/>
-    <Route path ="/leaderboard"component = {LeaderBoard}/>
-    <Route path ="/registration" component = {Registration}/>
+    <Route path ="/feed" component={() =><Feed token={props.token} changeToken={props.changeToken}/>}/>
+    <Route path ="/request" component={()=><Request token={props.token} changeToken={props.changeToken}/>}/>
+    <Route path ="/leaderboard"component = {()=><LeaderBoard token={props.token} changeToken={props.changeToken}/>}/>
+    <Route path ="/registration" component = {()=><Registration token={props.token} changeToken={props.changeToken}/>}/>
       </div>
       </Switch>
     </Router>

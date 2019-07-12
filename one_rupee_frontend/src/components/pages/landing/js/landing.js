@@ -3,12 +3,12 @@ import Header from "./header.js";
 import Login from "./login.js";
 import Footer from "./footer.js";
 
-function Landing() {
+function Landing(props) {
   return (
     <div>
       <Header />
       <span>
-        <Login />
+        <Login token={props.token} changeToken={props.changeToken}/>
         <Footer />
       </span>
     </div>
