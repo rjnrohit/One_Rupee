@@ -14,17 +14,19 @@ export default class RequestPopUp extends React.Component{
       long_description:"",
       req_amount:"",
       token: this.props.token,
-      pk: this.props.pk
+      pk: this.props.pk,
+      username:"",
     }
   }
   
   componentDidMount(){
     console.log(this.props)
-    const url = "http://localhost:8000/users/view-profile/" + this.props.pk + "/"
-    axios.get(url,{
+    const url = "http://localhost:8000/ngo/view-profile/" + this.props.pk + "/"
+    axios({url:url,
       headers:{Authorization:"Token "+this.props.token}
     }).then(res=>{
-      console.log(res.data)
+      this.setState({username:res.data.Ngo.username})
+      
     }).catch(err=>{
       console.log(err)
     })
@@ -41,7 +43,24 @@ export default class RequestPopUp extends React.Component{
   }
 
   handleSubmit=()=>{
-    console.log(this.state)
+    const url = "http://localhost:8000/cards/card-create-view/"+this.state.username +"/"
+    axios({url,data:{
+            title:this.state.title,
+            category:this.state.category,
+            shortDescription:this.state.short_description,
+            longDescription:this.state.long_description,
+            Email:this.state.Emailu,
+            amount_requested:parseInt(this.state.req_amount),
+            ngo:this.state.username
+            },method:"post",headers:{Authorization:"Token "+this.state.token}}).then(res => {
+                alert("Successfully Requested")
+                
+            }).catch(err=>{
+                
+                console.log(err.response.data)
+            })
+        
+  
   }
 
 
@@ -124,7 +143,7 @@ export default class RequestPopUp extends React.Component{
                       <button
                           type="submit"
                           className="button"
-                          onClick={()=>this.handleSubmit()}
+                          onClick={this.handleSubmit()}
                       >
                         SUBMIT
                       </button>
