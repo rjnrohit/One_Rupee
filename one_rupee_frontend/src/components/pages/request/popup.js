@@ -1,16 +1,47 @@
 import React from "react";
 import Popup from "reactjs-popup";
 import "./popup.css"
+import axios from "axios"
  
 export default class RequestPopUp extends React.Component{
 
-  constructor(){
-    super()
-    this.state={}
+  constructor(props){
+    super(props)
+    this.state={
+      title:"",
+      category:"AGE CARE",
+      short_description:"",
+      long_description:"",
+      req_amount:"",
+      token: this.props.token
+    }
+  }
+  
+  componentDidMount(){
+    console.log(this.props)
+    axios.get("http://localhost:8000/users/view-profile/",{
+      headers:{Authorization:"Token "+this.props.token}
+    }).then(res=>{
+      console.log(res.data)
+    }).catch(err=>{
+      console.log(err.response)
+    })
   }
 
-  handleSubmit(){
+
+  handleChange = (e)=>{
+    const value = e.target.value
+    const name = e.target.name
+     
+    this.setState({
+      [name]: value
+    })
   }
+
+  handleSubmit=()=>{
+    console.log(this.state)
+  }
+
 
   render(){
     return(
@@ -23,44 +54,70 @@ export default class RequestPopUp extends React.Component{
           </a>
           <div className="header"> Make a new request </div>
           <div className="content">
-              <form action = "" method="POST">
-                  <span id="headings">Name : </span> 
-                  <input type="text" placeholder ="Enter the name of your project" id="name"  required></input>
+              <div>
+                  <span id="headings" >Name : </span> 
+                  <input 
+                    type="text" 
+                    placeholder ="Enter the name of your project" 
+                    id="name"  
+                    name="title" 
+                    onChange={this.handleChange}
+                    required>
+                  </input>
                   <br></br><br></br>
                   <span id="headings">Category : </span>
-                  <select name="category" style={{width:"50%"}}>
-                      <option value= "AGRICULTURE" >AGRICULTURE</option>
-                      <option value= "ANIMAL WELFARE">ANIMAL WELFARE</option>
-                      <option value= "ART AND CRAFT" >ART AND CRAFT</option>
-                      <option value= "CHILD EDUCATION" >CHILD EDUCATION</option>
-                      <option value= "CITIES/URBAN DEVELOPMENT">CITIES/URBAN DEVELOPMENT</option>
-                      <option value= "COMMUNITY DEVELOPMENT">COMMUNITY DEVELOPMENT</option>
-                      <option value= "CULTURE AND HERITAGE" >CULTURE AND HERITAGE</option>
-                      <option value= "DISABILITY">DISABILITY</option>
-                      <option value= "DISASTER MANAGEMENT">DISASTER MANAGEMENT</option>
-                      <option value= "DRINKING WATER">DRINKING WATER</option>
-                      <option value= "EDUCATION">EDUCATION</option>
-                      <option value= "ENVIRONMENTAL ISSUES">ENVIRONMENTAL ISSUES</option>
-                      <option value= "HEALTH AND HYGIENE" >HEALTH AND HYGIENE</option>
-                      <option value= "HIV/AIDS" >HIV/AIDS</option>
-                      <option value= "HOUSING AND SLUMS">HOUSING AND SLUMS</option>
-                      <option value= "POPULATION">POPULATION</option>
-                      <option value= "POVERTY REMOVAL">POVERTY REMOVAL</option>
-                      <option value= "RURAL DEVELOPMENT">RURAL DEVELOPMENT</option>
-                      <option value= "SCIENCE AND TRECHNOLOGY DEVELOPMENT">SCIENCE AND TRECHNOLOGY DEVELOPMENT</option>
-                      <option value= "TRIBAL PEOPLE">TRIBAL PEOPLE</option>
-                      <option value= "WASTE MANAGEMENT">WASTE MANAGEMENT</option>
-                      <option value= "WOMEN">WOMEN</option>
-                      <option value= "OTHERS">OTHERS</option>
+                  <select name="category" onChange={this.handleChange} style={{width:"50%"}}>
+                            <option value= "AGC" >AGE CARE</option>
+                            <option value= "AGR" >AGRICULTURE</option>
+                            <option value= "AW">ANIMAL WELFARE</option>
+                            <option value= "ANC" >ART AND CRAFT</option>
+                            <option value= "CE" >CHILD EDUCATION</option>
+                            <option value= "CUD">CITIES/URBAN DEVELOPMENT</option>
+                            <option value= "CD">COMMUNITY DEVELOPMENT</option>
+                            <option value= "CNH" >CULTURE AND HERITAGE</option>
+                            <option value= "D">DISABILITY</option>
+                            <option value= "DM">DISASTER MANAGEMENT</option>
+                            <option value= "DW">DRINKING WATER</option>
+                            <option value= "EDU">EDUCATION</option>
+                            <option value= "ENVI">ENVIRONMENTAL ISSUES</option>
+                            <option value= "HNH" >HEALTH AND HYGIENE</option>
+                            <option value= "HA" >HIV/AIDS</option>
+                            <option value= "HS">HOUSING AND SLUMS</option>
+                            <option value= "P">POPULATION</option>
+                            <option value= "PR">POVERTY REMOVAL</option>
+                            <option value= "RD">RURAL DEVELOPMENT</option>
+                            <option value= "STD">SCIENCE AND TRECHNOLOGY DEVELOPMENT</option>
+                            <option value= "TP">TRIBAL PEOPLE</option>
+                            <option value= "WM">WASTE MANAGEMENT</option>
+                            <option value= "W">WOMEN</option>
+                            <option value= "O">OTHERS</option>
                   </select>
                   <br></br><br></br>
                   <span id="headings">Description :</span>
                   <br></br><br></br>
-                  <textarea id="short" placeholder="Enter a short description"  required></textarea>
-                  <textarea id="long" placeholder="Enter a detailed description"  required></textarea>
+                  <textarea 
+                    id="short" 
+                    placeholder="Enter a short description"  
+                    name="short_description" 
+                    onChange={this.handleChange}
+                    required>
+                  </textarea>
+                  <textarea 
+                    id="long" 
+                    placeholder="Enter a detailed description"  
+                    name="long_description" 
+                    onChange={this.handleChange}
+                    required>
+                  </textarea>
                   <br></br><br></br>
                   <span id="headings">Required Amount : </span>
-                  <input type="text" id="amount" required></input>
+                  <input 
+                    type="text" 
+                    id="amount" 
+                    name="req_amount" 
+                    onChange={this.handleChange}
+                    required>
+                  </input>
                   <div className="actions">
                       <button
                           type="submit"
@@ -70,7 +127,7 @@ export default class RequestPopUp extends React.Component{
                         SUBMIT
                       </button>
                   </div>
-              </form>
+              </div>
           </div>
         </div>
       )}

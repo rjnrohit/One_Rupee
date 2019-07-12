@@ -16,6 +16,12 @@ export default class Profile extends Component {
     constructor(){
         super()
         this.state={
+            name:"",
+            email:"",
+            mobile:"",
+            avatar:"",
+            donations:0,
+            amountDonated:0
         }
     }
 
