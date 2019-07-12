@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Menu from "./Menu"
 import axios from "axios";
-// import axios from "axios"
 const categories = [
     'AGE CARE',
     'AGRICULTURE',
@@ -51,8 +50,50 @@ class Feed extends Component {
     posts: []
   }
 
+  // makeNewPost = (info)=>{
+  //   console.log(info.title)
+  //   const newPost = {
+  //     ngo: {
+  //       title: info.title,
+  //       summary: info.shortDescription,
+  //       category: info.category,
+  //       description: info.longDescription,
+  //       required: info.amount_requested,
+  //       obtained: 0,
+  //     },
+  //     type: {
+  //       name: info.ngo.ngo_name,
+  //       image: ""
+  //     }
+  //   }
+  //   return newPost
+  // }
+
   componentDidMount() {
-    console.log(this.props)
+    axios.interceptors.response.use(res=>{
+      console.log(res.data.results)
+      res.data.results.map(info=>{
+        const newPost = {
+          ngo: {
+            title: info.title,
+            summary: info.shortDescription,
+            category: info.category,
+            description: info.longDescription,
+            required: info.amount_requested,
+            obtained: 0,
+          },
+          type: {
+            name: info.ngo.ngo_name,
+            image: ""
+          }
+        }
+        console.log(newPost)
+        this.setState(prevState=>({
+          posts: [...prevState.posts, newPost]
+        }))      }
+      )
+      return res;
+    })
     axios.get("http://localhost:8000/cards/all-cards/",{
       headers:{Authorization:"Token "+this.props.location.state.tokens}
     }).then(res=>
@@ -60,18 +101,11 @@ class Feed extends Component {
         console.log("success")
       }).catch(err=>
         {
-          console.log(err.response.data)
+          console.log(err.response)
         })
 
     this.setState({
       posts: [
-        samplePost,
-        samplePost,
-        samplePost,
-        samplePost,
-        samplePost,
-        samplePost,
-        samplePost,
       ],
       search:""
     });
