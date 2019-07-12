@@ -13,6 +13,7 @@ from django.contrib.auth import authenticate, login, logout, models
 from django.views.decorators.csrf import csrf_exempt
 from knox.models import AuthToken
 from knox import views as knox_views
+from knox.auth import TokenAuthentication
 # we will implement tokenAuthentication later
 
 
@@ -73,6 +74,8 @@ class LoginView(APIView):
 # @api_view(['GET', 'POST'])
 # @permission_classes((IsAuthenticated, ))
 class Logout(knox_views.LogoutView):
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
     def post(self, request, *args, **kwargs):
         a = super().post(request, *args, **kwargs)
         print(a)

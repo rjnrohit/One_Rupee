@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import SideBarItem from "./sidebarComponent";
 import "./sidebar.css"
+import axios from "axios"
 import { BrowserRouter as Router,Link} from "react-router-dom"
 
 const useStyles = makeStyles({
@@ -18,8 +19,15 @@ const useStyles = makeStyles({
 });
 
 function handleLogOut(props){
+  console.log(props)
+  axios.post("http://localhost:8000/logout/",{yrdh:""},{headers:{Authorization:"Token "+props.token}})
+  .then(res =>{props.changeToken("")})
+  .catch(err => {
+    console.log(err);
+    
+  })
   props.pageHandler(props.pages[5])
-  props.changeToken("")
+  
   console.log(props)
 }
 
