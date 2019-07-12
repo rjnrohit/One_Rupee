@@ -87,9 +87,8 @@ class Feed extends Component {
     axios({url:"http://localhost:8000/cards/all-cards/",
       headers:{Authorization:"Token "+this.state.token},
       method:"get",
-      transformResponse:[res=>
-      {
-        console.log(res)
+      transformResponse:[res=>{
+        // console.log(res)
         res=JSON.parse(res)
         res.results.map(info=>{
         const idx = shortCategories.indexOf(info.category)
