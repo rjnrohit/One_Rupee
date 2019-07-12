@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from .serializers import UserSerializer, ProfileSerializer
 from django.contrib.auth.hashers import make_password
-from rest_framework.generics import UpdateAPIView
+from rest_framework.generics import UpdateAPIView, RetrieveAPIView
 from .models import user, Profile
 from rest_framework.permissions import IsAuthenticated
 from .permissions import IsAuthenticatedUser, IsProceedByUser, IsAnonymous
@@ -45,5 +45,16 @@ class UpdateProfileView(UpdateAPIView):
 
     def get_queryset(self):
         query_name = self.request.user.username
-        ngo = get_object_or_404(user, username=ngo_name)
-        return ngo.profile
+        user = get_object_or_404(user, username=ngo_name)
+        return user.profile
+
+
+class ProfileView(RetrieveAPIView):
+    permission_classes = (
+        IsAuthenticated, IsAuthenticatedUser, IsProceedByUser)
+    serializer_class = ProfileSerializer
+
+    def get_queryset(self):
+        query_name = self.request.user.username
+        user = get_object_or_404(user, username=ngo_name)
+        return user.profile

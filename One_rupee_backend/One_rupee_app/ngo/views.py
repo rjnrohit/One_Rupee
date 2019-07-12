@@ -6,7 +6,7 @@ from .serializers import NgoSerializer
 from .models import Ngo, Profile
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.auth.hashers import make_password
-from rest_framework.generics import UpdateAPIView
+from rest_framework.generics import UpdateAPIView, RetrieveAPIView
 from .serializers import ProfileSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
@@ -41,6 +41,17 @@ def register(request):
 
 
 class UpdateProfileView(UpdateAPIView):
+    permission_classes = (IsAuthenticatedUserNgo,
+                          IsProceedByNgo, IsAuthenticatedUserNgo)
+    serializer_class = ProfileSerializer
+
+    def get_queryset(self):
+        ngo_name = self.request.user.username
+        ngo = get_object_or_404(Ngo, username=ngo_name)
+        return ngo.profile
+
+
+class ProfileView(RetrieveAPIView):
     permission_classes = (IsAuthenticatedUserNgo,
                           IsProceedByNgo, IsAuthenticatedUserNgo)
     serializer_class = ProfileSerializer
