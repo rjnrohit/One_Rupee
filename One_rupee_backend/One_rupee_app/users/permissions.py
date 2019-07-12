@@ -6,16 +6,16 @@ from django.contrib.auth.models import AnonymousUser
 
 class IsAuthenticatedUser(BasePermission):
     def has_permission(self, request, view):
-        user = get_object_or_404(user, username=request.user.username)
+        a = get_object_or_404(user, username=request.user.username)
         print("verified 2")
-        return ngo.IsNgo == False
+        return a.IsNgo == False
 
 
 class IsProceedByUser(BasePermission):
     def has_object_permission(self, request, view, obj):
-        user = get_object_or_404(user, username=request.user.username)
+        a = get_object_or_404(user, username=request.user.username)
         print("verified 3")
-        return obj.user == user
+        return obj.user == a
 
 
 class IsAnonymous(BasePermission):

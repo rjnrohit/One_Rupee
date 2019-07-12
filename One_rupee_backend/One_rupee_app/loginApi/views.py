@@ -60,7 +60,7 @@ class LoginView(APIView):
                             logger = user.objects.get(
                                 username=auth_user.username)
 
-                        return Response({'message': "login successfull", "IsNgo": logger.IsNgo, "token": AuthToken.objects.create(auth_user)[1]}, status=status.HTTP_200_OK)
+                        return Response({'message': "login successfull", "IsNgo": logger.IsNgo, "token": AuthToken.objects.create(auth_user)[1], 'pk': auth_user.pk}, status=status.HTTP_200_OK)
                 else:
                     return Response({'message:please enter valid credentials'}, status=status.HTTP_400_BAD_REQUEST)
 
