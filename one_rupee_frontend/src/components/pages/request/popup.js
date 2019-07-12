@@ -9,7 +9,7 @@ export default class RequestPopUp extends React.Component{
     super(props)
     this.state={
       title:"",
-      category:"AGE CARE",
+      category:"AGC",
       short_description:"",
       long_description:"",
       req_amount:"",
