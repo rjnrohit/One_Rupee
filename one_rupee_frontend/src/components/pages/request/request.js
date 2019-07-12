@@ -57,22 +57,7 @@ const shortCategories = [
   "O"
 ]
 
-const samplePost = {
-    ngo: {
-      title: "[TITLE]",
-      summary:
-        "[short description]",
-      category: "[category]",
-      description:
-        "[long description]",
-      required: 1000, // amount of money required by project
-      obtained: 0, // amount of money obtained thus far
-    },
-    type: {
-      name: "[name of ngo]",
-      image: ""
-    }
-};
+
 
 class Request extends React.Component
 {

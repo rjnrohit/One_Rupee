@@ -14,7 +14,7 @@ class Footer extends React.Component
                 <li><a href="./" className="icon fa-youtube"><span className="label">YouTube</span></a></li>
             </ul>
                 <div className="copyright">					
-                    &copy;[App Name]
+                    &copy;One Rupee
                 </div>
             </footer>
         )   

@@ -4,14 +4,7 @@ import {Link} from "react-router-dom"
 import ProfilePic from "./profilePic"
 import axios from "axios"
 
-const sample = {
-    name: "Shubham Bhagat",
-    email: "sbhagat@iitk.ac.in",
-    mobile: "6387302924",
-    avatar: "https://docs.atlassian.com/aui/8.3.1/docs/images/avatar-person.svg",
-    donations: 3,
-    amountDonated: 10,
-} 
+
 
 export default class Profile extends Component {
     constructor(props){
