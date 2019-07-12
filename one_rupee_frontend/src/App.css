@@ -44,7 +44,7 @@
   z-index: 0;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .main-wrapper {
     left: 0;
   }
@@ -52,4 +52,4 @@
   .main-wrapper.sidebar-hidden {
     left: var(--sidebar-width);
   }
-}
+} */
