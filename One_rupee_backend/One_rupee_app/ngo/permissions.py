@@ -15,7 +15,7 @@ class IsProceedByNgo(BasePermission):
     def has_object_permission(self, request, view, obj):
         ngo = get_object_or_404(Ngo, username=request.user.username)
         print("verified 3")
-        return obj.ngo == ngo
+        return obj.Ngo == ngo
 
 
 class IsAnonymous(BasePermission):
