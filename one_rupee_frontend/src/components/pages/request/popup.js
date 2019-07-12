@@ -143,7 +143,7 @@ export default class RequestPopUp extends React.Component{
                       <button
                           type="submit"
                           className="button"
-                          onClick={this.handleSubmit()}
+                          onClick={this.handleSubmit}
                       >
                         SUBMIT
                       </button>
