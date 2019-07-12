@@ -28,6 +28,33 @@ const categories = [
     'OTHERS'
 ]
 
+const shortCategories = [
+    "AGC" ,
+    "AGR" ,
+    "AW",
+    "ANC" ,
+    "CE" ,
+    "CUD",
+    "CD",
+    "CNH" ,
+    "D",
+    "DM",
+    "DW",
+    "EDU",
+    "ENVI",
+    "HNH",
+    "HA" ,
+    "HS",
+    "P",
+    "PR",
+    "RD",
+    "STD",
+    "TP",
+    "WM",
+    "W",
+    "O"
+]
+
 const samplePost = {
   ngo: {
     title: "[TITLE]",
@@ -50,34 +77,16 @@ class Feed extends Component {
     posts: []
   }
 
-  // makeNewPost = (info)=>{
-  //   console.log(info.title)
-  //   const newPost = {
-  //     ngo: {
-  //       title: info.title,
-  //       summary: info.shortDescription,
-  //       category: info.category,
-  //       description: info.longDescription,
-  //       required: info.amount_requested,
-  //       obtained: 0,
-  //     },
-  //     type: {
-  //       name: info.ngo.ngo_name,
-  //       image: ""
-  //     }
-  //   }
-  //   return newPost
-  // }
-
   componentDidMount() {
     axios.interceptors.response.use(res=>{
       console.log(res.data.results)
       res.data.results.map(info=>{
+        const idx = shortCategories.indexOf(info.category)
         const newPost = {
           ngo: {
             title: info.title,
             summary: info.shortDescription,
-            category: info.category,
+            category: categories[idx],
             description: info.longDescription,
             required: info.amount_requested,
             obtained: 0,
@@ -87,10 +96,9 @@ class Feed extends Component {
             image: ""
           }
         }
-        console.log(newPost)
         this.setState(prevState=>({
           posts: [...prevState.posts, newPost]
-        }))      }
+        }))}
       )
       return res;
     })
@@ -130,7 +138,6 @@ class Feed extends Component {
       <div>
         <div style={{textAlign:"center",marginTop:"2%"}}>
             <input placeholder="Search here" id ="input" value = {this.state.search} onChange={this.UpdateChange.bind(this)}style={{textAlign:"center",height:"30px",width:"45%",fontSize:"24px",borderRadius:"5px",border:"1px solid black"}}/>
-            {/* <button id="button" onClick={this.Search} style={{height:"30px",fontSize:"20px",margin:"0.5%",borderRadius:"5px",backgroundColor:"var(--sidebar-dark-color)",color:"white"}}>Search</button><br/>  */}
         </div>
         <Menu posts={searched_posts}/>
       </div>
