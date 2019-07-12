@@ -13,7 +13,10 @@ const Main = props => {
 {
   return(
     <Profile pageHandler={props.pageHandler}
-    pages={props.pages}/>
+    pages={props.pages}
+    pic={props.pic}
+    changePic={props.changePic}
+    />
   )
 }
 
