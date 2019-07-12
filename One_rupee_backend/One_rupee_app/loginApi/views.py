@@ -12,6 +12,7 @@ from ngo.models import Ngo
 from django.contrib.auth import authenticate, login, logout, models
 from django.views.decorators.csrf import csrf_exempt
 from knox.models import AuthToken
+from knox import views as knox_views
 # we will implement tokenAuthentication later
 
 
@@ -69,10 +70,10 @@ class LoginView(APIView):
             return Response({"error": "it seems that you didn't provided  your username or password"}, status=status.HTTP_400_BAD_REQUEST)
 
 
-# @csrf_exempt
 # @api_view(['GET', 'POST'])
 # @permission_classes((IsAuthenticated, ))
-# def logout_view(request):
-#     print(request.user, request.auth)
-#     logout(request)
-#     return Response({'message': 'logout successfull'}, status=status.HTTP_204_NO_CONTENT)
+class Logout(knox_views.LogoutView):
+    def post(self, request, *args, **kwargs):
+        a = super().post(request, *args, **kwargs)
+        print(a)
+        return Response({'msg': "logout successful"}, status=status.HTTP_200_OK)
