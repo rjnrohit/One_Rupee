@@ -1,0 +1,12 @@
+cards/__pycache__
+cards/migrations/__pycache__
+loginApi/__pycache__
+loginApi/migrations/__pycache__
+payment/__pycache__
+payment/migrations/__pycache__
+users/__pycache__
+users/migrations/__pycache__
+db.sqlite3
+One_rupee_app/__pycache__
+ngo/__pycache__
+ngo/migrations/__pycache__

@@ -47,9 +47,7 @@ class UpdateProfileView(UpdateAPIView):
     serializer_class = ProfileSerializer
 
     def get_queryset(self):
-        ngo_name = self.request.user.username
-        ngo = get_object_or_404(Ngo, username=ngo_name)
-        return Profile.objects.get(**self.kwargs)
+        return Profile.objects.filter(**self.kwargs)
 
 
 class ProfileView(RetrieveAPIView):
@@ -58,6 +56,4 @@ class ProfileView(RetrieveAPIView):
     serializer_class = ProfileSerializer
 
     def get_queryset(self):
-        ngo_name = self.request.user.username
-        ngo = get_object_or_404(Ngo, username=ngo_name)
-        return Profile.objects.get(**self.kwargs)
+        return Profile.objects.filter(**self.kwargs)
