@@ -73,9 +73,14 @@ const samplePost = {
 };
 
 class Feed extends Component {
-  state={ 
-    posts: []
+  constructor(props)
+{
+  super(props)
+  this.state={ 
+    posts: [],
+    token:this.props.token,
   }
+}
 
   componentDidMount() {
     axios.interceptors.response.use(res=>{
@@ -103,7 +108,7 @@ class Feed extends Component {
       return res;
     })
     axios.get("http://localhost:8000/cards/all-cards/",{
-      headers:{Authorization:"Token "+this.props.location.state.tokens}
+      headers:{Authorization:"Token "+this.state.token}
     }).then(res=>
       {
         console.log("success")

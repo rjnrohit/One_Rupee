@@ -13,7 +13,7 @@ class Login extends React.Component {
       password: "",
       islogIn: false,
       isError: false,
-      token:"",
+      token:this.props.token,
     };
     
   }
@@ -29,7 +29,8 @@ class Login extends React.Component {
   Submit = () => {
     axios.interceptors.response.use(res =>
       {
-        this.setState({token:res.data.token});
+        this.setState({token:res.data.token})
+        // this.props.changeToken(res.data.token);
         return res;
       })
    axios
@@ -123,8 +124,8 @@ class Login extends React.Component {
         </div>
       );
     else {
-      console.log(this.state)
-      return (<Redirect to={{ pathname: "/feed" ,state: {tokens :this.state.token}}} />);
+      this.props.changeToken(this.state.token)
+      return (<Redirect to={{ pathname: "/feed" }} />);
     }
   }
 }
