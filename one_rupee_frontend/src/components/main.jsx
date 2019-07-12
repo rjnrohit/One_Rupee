@@ -17,7 +17,9 @@ const Main = props => {
     pic={props.pic}
     changePic={props.changePic}
     token={props.token}
-        changeToken={props.changeToken}
+    changeToken={props.changeToken}
+    pk={props.pk} 
+    changePk={props.changePk}
     />
   )
 }
@@ -31,13 +33,13 @@ const Main = props => {
           (props.sidebarActive ? "" : " sidebar-hidden") 
         }
       >
-    <Route path ="/" exact component = {()=><Landing token={props.token} changeToken={props.changeToken}/>}/>
-    <Route path ="/history" component={()=><History token={props.token} changeToken={props.changeToken}/>}/>
+    <Route path ="/" exact component = {()=><Landing token={props.token} changeToken={props.changeToken} pk={props.pk} changePk={props.changePk}/>}/>
+    <Route path ="/history" component={()=><History token={props.token} changeToken={props.changeToken} pk={props.pk} changePk={props.changePk}/>}/>
     <Route path ="/profile" component = {Profile2}/>
-    <Route path ="/feed" component={() =><Feed token={props.token} changeToken={props.changeToken}/>}/>
-    <Route path ="/request" component={()=><Request token={props.token} changeToken={props.changeToken}/>}/>
-    <Route path ="/leaderboard"component = {()=><LeaderBoard token={props.token} changeToken={props.changeToken}/>}/>
-    <Route path ="/registration" component = {()=><Registration token={props.token} changeToken={props.changeToken}/>}/>
+    <Route path ="/feed" component={() =><Feed token={props.token} changeToken={props.changeToken} pk={props.pk} changePk={props.changePk}/>}/>
+    <Route path ="/request" component={()=><Request token={props.token} changeToken={props.changeToken} pk={props.pk} changePk={props.changePk}/>}/>
+    <Route path ="/leaderboard"component = {()=><LeaderBoard token={props.token} changeToken={props.changeToken} pk={props.pk} changePk={props.changePk}/>}/>
+    <Route path ="/registration" component = {()=><Registration token={props.token} changeToken={props.changeToken} pk={props.pk} changePk={props.changePk}/>}/>
       </div>
       </Switch>
     </Router>

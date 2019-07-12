@@ -79,13 +79,19 @@ class Feed extends Component {
   this.state={ 
     posts: [],
     token:this.props.token,
+    pk:this.props.pk,
   }
 }
 
   componentDidMount() {
-    axios.interceptors.response.use(res=>{
-      console.log(res.data.results)
-      res.data.results.map(info=>{
+    axios({url:"http://localhost:8000/cards/all-cards/",
+      headers:{Authorization:"Token "+this.state.token},
+      method:"get",
+      transformResponse:[res=>
+      {
+        console.log(res)
+        res=JSON.parse(res)
+        res.results.map(info=>{
         const idx = shortCategories.indexOf(info.category)
         const newPost = {
           ngo: {
@@ -106,15 +112,13 @@ class Feed extends Component {
         }))}
       )
       return res;
-    })
-    axios.get("http://localhost:8000/cards/all-cards/",{
-      headers:{Authorization:"Token "+this.state.token}
+      }]
     }).then(res=>
       {
         console.log("success")
       }).catch(err=>
         {
-          console.log(err.response)
+          console.log(err)
         })
 
     this.setState({

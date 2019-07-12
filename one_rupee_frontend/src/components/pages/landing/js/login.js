@@ -14,6 +14,7 @@ class Login extends React.Component {
       islogIn: false,
       isError: false,
       token:this.props.token,
+      pk: this.props.pk,
     };
     
   }
@@ -42,7 +43,7 @@ class Login extends React.Component {
         }
       )
       .then(res =>  {
-        this.setState({ islogIn: true });
+        this.setState({ islogIn: true ,pk:res.data.pk});
         // const {token} = this.state;
         // token.push(res.data.token);
         // this.setState({token})
@@ -125,6 +126,7 @@ class Login extends React.Component {
       );
     else {
       this.props.changeToken(this.state.token)
+      this.props.changePk(this.state.pk)
       return (<Redirect to={{ pathname: "/feed" }} />);
     }
   }

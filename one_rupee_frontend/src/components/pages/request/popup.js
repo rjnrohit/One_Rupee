@@ -13,18 +13,20 @@ export default class RequestPopUp extends React.Component{
       short_description:"",
       long_description:"",
       req_amount:"",
-      token: this.props.token
+      token: this.props.token,
+      pk: this.props.pk
     }
   }
   
   componentDidMount(){
     console.log(this.props)
-    axios.get("http://localhost:8000/users/view-profile/",{
+    const url = "http://localhost:8000/users/view-profile/" + this.props.pk + "/"
+    axios.get(url,{
       headers:{Authorization:"Token "+this.props.token}
     }).then(res=>{
       console.log(res.data)
     }).catch(err=>{
-      console.log(err.response)
+      console.log(err)
     })
   }
 

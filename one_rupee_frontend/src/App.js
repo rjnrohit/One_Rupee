@@ -18,6 +18,7 @@ class App extends Component {
         { name: "Registration",icon: "",route:"/registration"}
       ],
       token:"",
+      pk:0,
       activePage: 5,
       sidebarActive: true,
       profilePic: "https://docs.atlassian.com/aui/8.3.1/docs/images/avatar-person.svg"
@@ -27,10 +28,15 @@ class App extends Component {
   sidebarToggleHandler = () => {
     this.setState({ sidebarActive: !this.state.sidebarActive });
   };
-  changeToken=(value)=>
-  {
+
+  changeToken=(value)=>{
     this.setState({token:value})
   }
+  
+  changePk = value=>{
+    this.setState({pk:value})
+  }
+
   switchPage = page => {
     const newActive = this.state.pages.findIndex(pg => pg.name === page.name);
     this.setState({ activePage: newActive });
@@ -54,6 +60,8 @@ class App extends Component {
         changePic={this.changePic}
         changeToken={this.changeToken}
         token={this.state.token}
+        pk={this.state.pk}
+        changePk={this.changePk}
       /> 
       )
     }
@@ -72,6 +80,8 @@ class App extends Component {
         currentPage={this.state.pages[this.state.activePage]}
         token={this.state.token}
         changeToken={this.changeToken}
+        pk={this.state.pk}
+        changePk={this.changePk}
       />
       <SideBar
         pages={this.state.pages}
@@ -81,6 +91,8 @@ class App extends Component {
         profilePic = {this.state.profilePic}
         token={this.state.token}
         changeToken={this.changeToken}
+        pk={this.state.pk}
+        changePk={this.changePk}
       />
       {/* Container for the main body */}
       <Route path={this.state.activePage.route} exact component ={Ab}/>

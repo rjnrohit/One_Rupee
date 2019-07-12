@@ -52,7 +52,7 @@ class Request extends React.Component
                     ))}
                 </div>
                 <div id="req">
-                     <Popup token={this.props.token}/>
+                     <Popup token={this.props.token} pk={this.props.pk} changePk={this.props.changePk}/>
                 </div>
             </div>
         )
