@@ -25,7 +25,8 @@ def register(request):
         if serializer.is_valid():
             serializer.save()
             p = Profile.objects.create(Ngo=Ngo.objects.get(
-                username=serializer.data["username"]), contact=78)
+                username=serializer.data["username"]), contact=78, pk=Ngo.objects.get(
+                username=serializer.data["username"]).pk)
             p.save()
             # we will implement json response later
             return Response(
@@ -48,7 +49,7 @@ class UpdateProfileView(UpdateAPIView):
     def get_queryset(self):
         ngo_name = self.request.user.username
         ngo = get_object_or_404(Ngo, username=ngo_name)
-        return ngo.profile
+        return Profile.objects.get(**self.kwargs)
 
 
 class ProfileView(RetrieveAPIView):
@@ -59,4 +60,4 @@ class ProfileView(RetrieveAPIView):
     def get_queryset(self):
         ngo_name = self.request.user.username
         ngo = get_object_or_404(Ngo, username=ngo_name)
-        return ngo.profile
+        return Profile.objects.get(**self.kwargs)
