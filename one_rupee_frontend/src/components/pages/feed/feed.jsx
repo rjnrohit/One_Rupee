@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Menu from "./Menu"
+import axios from "axios";
 // import axios from "axios"
 const categories = [
     'AGE CARE',
@@ -46,12 +47,21 @@ const samplePost = {
 };
 
 class Feed extends Component {
-  state = {
+  state={ 
     posts: []
-  };
+  }
 
   componentDidMount() {
-    // fetch
+    console.log(this.props)
+    axios.get("http://localhost:8000/cards/all-cards/",{
+      headers:{Authorization:"Token "+this.props.location.state.tokens}
+    }).then(res=>
+      {
+        console.log("success")
+      }).catch(err=>
+        {
+          console.log(err.response.data)
+        })
 
     this.setState({
       posts: [
