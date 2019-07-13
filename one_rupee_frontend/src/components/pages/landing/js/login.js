@@ -15,6 +15,7 @@ class Login extends React.Component {
       isError: false,
       token:this.props.token,
       pk: this.props.pk,
+      isNgo: this.props.isNgo,
     };
     
   }
@@ -30,7 +31,7 @@ class Login extends React.Component {
   Submit = () => {
     axios.interceptors.response.use(res =>
       {
-        this.setState({token:res.data.token})
+        this.setState({token:res.data.token, isNgo: res.data.IsNgo})
         // this.props.changeToken(res.data.token);
         return res;
       })
@@ -127,6 +128,7 @@ class Login extends React.Component {
     else {
       this.props.changeToken(this.state.token)
       this.props.changePk(this.state.pk)
+      this.props.setType(this.state.isNgo)
       return (<Redirect to={{ pathname: "/feed" }} />);
     }
   }

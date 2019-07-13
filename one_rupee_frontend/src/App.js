@@ -17,6 +17,7 @@ class App extends Component {
         { name: "Landing", icon: "",route:"/" },
         { name: "Registration",icon: "",route:"/registration"}
       ],
+      isNgo: false,
       token:"",
       pk:0,
       activePage: 5,
@@ -35,6 +36,10 @@ class App extends Component {
   
   changePk = value=>{
     this.setState({pk:value})
+  }
+
+  setType = value=>{
+    this.setState({isNgo:value})
   }
 
   switchPage = page => {
@@ -62,6 +67,8 @@ class App extends Component {
         token={this.state.token}
         pk={this.state.pk}
         changePk={this.changePk}
+        isNgo={this.state.isNgo}
+        setType={this.setType}
       /> 
       )
     }
@@ -82,6 +89,8 @@ class App extends Component {
         changeToken={this.changeToken}
         pk={this.state.pk}
         changePk={this.changePk}
+        isNgo={this.state.isNgo}
+        setType={this.setType}
       />
       <SideBar
         pages={this.state.pages}
@@ -93,6 +102,8 @@ class App extends Component {
         changeToken={this.changeToken}
         pk={this.state.pk}
         changePk={this.changePk}
+        isNgo={this.state.isNgo}
+        setType={this.setType}
       />
       {/* Container for the main body */}
       <Route path={this.state.activePage.route} exact component ={Ab}/>

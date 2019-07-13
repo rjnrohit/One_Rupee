@@ -9,7 +9,7 @@ function Landing(props) {
     <div>
       <Header />
       <span>
-        <Login token={props.token} changeToken={props.changeToken} pk={props.pk} changePk={props.changePk}/>
+        <Login token={props.token} changeToken={props.changeToken} pk={props.pk} changePk={props.changePk} isNgo={props.isNgo} setType={props.setType}/>
         <Footer />
       </span>
     </div>
