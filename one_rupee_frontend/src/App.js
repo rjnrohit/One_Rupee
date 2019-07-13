@@ -53,9 +53,8 @@ class App extends Component {
   }
 
   render() {
-    const Ab = () =>
-    {
-      const active= this.state.token==="" ? false : this.state.sidebarActive
+    const active= this.state.token==="" ? false : this.state.sidebarActive
+    const Ab = () =>{
       return(
         <Main
         page={this.state.pages[this.state.activePage]}
@@ -97,7 +96,7 @@ class App extends Component {
         pages={this.state.pages}
         activePage={this.state.activePage}
         pageHandler={this.switchPage}
-        active={this.state.sidebarActive}
+        active={active}
         profilePic = {this.state.profilePic}
         token={this.state.token}
         changeToken={this.changeToken}
