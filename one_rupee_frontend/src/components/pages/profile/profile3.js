@@ -50,13 +50,13 @@ export default class Profile extends Component {
                     <div className="headerInfo">
                         <span className="name">{this.state.name}</span><br></br>
                         <span className="email">{this.state.email}</span><br></br>
-                        <span className="mobile">{this.state.mobile}</span>
-                        <span className="certificate">{this.state.certificate}</span>
-                        <span className="website">{this.state.website}</span>
+                        <span className="mobile">6387302924</span><br></br>
+                        <span className="mobile">certificate: {this.state.certificate}</span><br></br>
+                        <span className="mobile">website: {this.state.website}</span><br></br>
                     </div>
                 </div>
                 <div className="body">
-                    <span>You have collected <span style={{color:"red"}}>&#8377;{this.state.amountCollected} in donations</span></span>
+                    <span>You have collected <span style={{color:"red"}}>&#8377;{this.state.amountCollected}</span> in donations</span>
                     <br></br> 
                     <span>Click <Link to = "/feed" onClick = {() => this.props.pageHandler(this.props.pages[1]) } > here</Link>  to donate</span><br></br><br></br><br></br>
                     <span>Click <Link to = "/history" onClick = {() => this.props.pageHandler(this.props.pages[4]) } > here</Link>  to view your donation history</span><br></br>
