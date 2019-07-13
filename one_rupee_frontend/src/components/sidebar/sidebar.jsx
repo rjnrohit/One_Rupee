@@ -40,16 +40,28 @@ const SideBar = props => {
           </div>
           <br />
           {props.pages.map((page, index) => {
-            if(index < 5)
-            return (
-              <SideBarItem
-                key={index}
-                page={page}
-                active={props.activePage === index}
-                changePage={props.pageHandler}
-              />)
-              else 
-              return(null)
+            if(props.isNgo)
+              if(index < 5)
+              return (
+                <SideBarItem
+                  key={index}
+                  page={page}
+                  active={props.activePage === index}
+                  changePage={props.pageHandler}
+                />)
+                else 
+                return(null)
+            else
+              if(index < 5 && index!==2)
+              return (
+                <SideBarItem
+                  key={index}
+                  page={page}
+                  active={props.activePage === index}
+                  changePage={props.pageHandler}
+                />)
+                else 
+                return(null)
             ;
           })}
         </div>
