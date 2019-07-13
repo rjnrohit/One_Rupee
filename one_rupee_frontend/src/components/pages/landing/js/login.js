@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/login.css";
-import { Link, Redirect,BrowserRouter as Router } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
