@@ -17,6 +17,12 @@ const useStyles = makeStyles({
   },
 });
 
+function handleLogOut(props){
+  props.pageHandler(props.pages[5])
+  props.changeToken("")
+  console.log(props)
+}
+
 const SideBar = props => {
   return (
     <Router>
@@ -32,7 +38,7 @@ const SideBar = props => {
           </Grid>
           <div className="logout">
             <Link to = "/" style ={{textDecoration:"none"}}>
-            <Button variant="contained" color="primary" size="small" onClick = {() => props.pageHandler(props.pages[5])}>
+            <Button variant="contained" color="primary" size="small" onClick = {() => handleLogOut(props)}>
               Log Out
             </Button>
             </Link>
